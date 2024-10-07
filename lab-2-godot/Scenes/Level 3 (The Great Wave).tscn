@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://d1ness4l50hr3"]
+[gd_scene load_steps=7 format=3 uid="uid://d1ness4l50hr3"]
 
 [ext_resource type="Texture2D" uid="uid://bcpcths270crb" path="res://Backgrounds/Great Wave BG.png" id="1_bawru"]
 [ext_resource type="Texture2D" uid="uid://c0fe7ywqhtg24" path="res://Sprites/Mario Arrow.png" id="2_dk2r6"]
 [ext_resource type="Script" path="res://Scripts/BackButton.gd" id="3_5b1ty"]
+[ext_resource type="Script" path="res://Scripts/BombSpawner.gd" id="4_c0pia"]
+[ext_resource type="PackedScene" uid="uid://c0bm7s58mbjtl" path="res://Scenes/Bombs.tscn" id="5_wi4sh"]
+[ext_resource type="AudioStream" uid="uid://cl5pnou7tl8on" path="res://Music/The Great Wave Theme.mp3" id="6_722xm"]
 
 [node name="TheGreatWave" type="Node2D"]
 
@@ -19,3 +22,13 @@ offset_bottom = 215.0
 scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("2_dk2r6")
 script = ExtResource("3_5b1ty")
+
+[node name="BombSpawner" type="Node2D" parent="."]
+script = ExtResource("4_c0pia")
+
+[node name="Bombs" parent="BombSpawner" instance=ExtResource("5_wi4sh")]
+
+[node name="GreatWaveMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_722xm")
+
+[editable path="BombSpawner/Bombs"]

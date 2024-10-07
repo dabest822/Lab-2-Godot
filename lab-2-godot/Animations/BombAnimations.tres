@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://yydsqcatqsr5"]
+
+[ext_resource type="Texture2D" uid="uid://cjf8chaneptdx" path="res://Sprites/Bombs.png" id="1_puol5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2bobl"]
+atlas = ExtResource("1_puol5")
+region = Rect2(0, 0, 25, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcoy0"]
+atlas = ExtResource("1_puol5")
+region = Rect2(0, 37, 25, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l4e3a"]
+atlas = ExtResource("1_puol5")
+region = Rect2(25, 37, 25, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t2ip8"]
+atlas = ExtResource("1_puol5")
+region = Rect2(50, 37, 25, 37)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2bobl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jcoy0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l4e3a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t2ip8")
+}],
+"loop": true,
+"name": &"Falling",
+"speed": 10.0
+}]

@@ -26,7 +26,7 @@ func update_difficulty():
 func _spawn_bomb():
 	if bomb_scene:
 		var bomb_instance = bomb_scene.instantiate()
-		bomb_instance.position = Vector2(randf_range(0, viewport_size.x), -50)
+		bomb_instance.position = Vector2(randf_range(100, 1600), -50)
 		
 		var speed_multiplier = 1 + (GlobalState.current_difficulty - 1) * 0.5
 		bomb_instance.fall_speed = base_fall_speed * speed_multiplier

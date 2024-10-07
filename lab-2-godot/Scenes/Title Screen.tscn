@@ -1,0 +1,135 @@
+[gd_scene load_steps=15 format=3 uid="uid://eqwu2jln054k"]
+
+[ext_resource type="Texture2D" uid="uid://dkx6fwkllp3l5" path="res://Backgrounds/Title Screen BG.png" id="1_d65d0"]
+[ext_resource type="Texture2D" uid="uid://0oeiq30rugqu" path="res://Logos/Big Ninja Logo.png" id="2_0udse"]
+[ext_resource type="Texture2D" uid="uid://ew72xpg5u8ax" path="res://GUI/Play.png" id="3_wo55f"]
+[ext_resource type="Script" path="res://Scripts/Play.gd" id="4_j7o42"]
+[ext_resource type="Texture2D" uid="uid://yubntc58yqo8" path="res://Icons/Dojo BG Icon.png" id="4_y0t4v"]
+[ext_resource type="Texture2D" uid="uid://yqxt4ipq81y6" path="res://Icons/Mountain BG Icon.png" id="5_s34qu"]
+[ext_resource type="Script" path="res://Scripts/WhichLevel.gd" id="6_034th"]
+[ext_resource type="Texture2D" uid="uid://csfj1wl2c7jcw" path="res://Icons/Great Wave BG Icon.png" id="6_y423e"]
+[ext_resource type="FontFile" uid="uid://kcx64u1q6o1o" path="res://ARCADECLASSIC.TTF" id="7_h6oge"]
+[ext_resource type="Texture2D" uid="uid://c0fe7ywqhtg24" path="res://Sprites/Mario Arrow.png" id="10_ukpyo"]
+[ext_resource type="Script" path="res://Scenes/BackToPlay.gd" id="11_3fno8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_t046j"]
+font = ExtResource("7_h6oge")
+font_size = 150
+font_color = Color(0.0156863, 1, 0.0666667, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_sjnn4"]
+font = ExtResource("7_h6oge")
+font_size = 150
+font_color = Color(1, 1, 0.027451, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_po2ac"]
+font = ExtResource("7_h6oge")
+font_size = 150
+font_color = Color(1, 0.203922, 0, 1)
+
+[node name="TitleScreen" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(840.107, 525.031)
+scale = Vector2(0.999694, 0.999941)
+texture = ExtResource("1_d65d0")
+
+[node name="Title Logo" type="Sprite2D" parent="."]
+position = Vector2(469, 529)
+scale = Vector2(0.858154, 0.858154)
+texture = ExtResource("2_0udse")
+
+[node name="PlayScreen" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Play" type="TextureButton" parent="PlayScreen"]
+offset_left = 966.0
+offset_top = 383.0
+offset_right = 1205.0
+offset_bottom = 525.0
+scale = Vector2(2, 2)
+texture_normal = ExtResource("3_wo55f")
+script = ExtResource("4_j7o42")
+
+[node name="LevelSelectScreen" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Dojo" type="TextureButton" parent="LevelSelectScreen"]
+visible = false
+offset_left = 1043.0
+offset_top = 103.0
+offset_right = 1551.0
+offset_bottom = 612.0
+scale = Vector2(0.35, 0.35)
+texture_normal = ExtResource("4_y0t4v")
+script = ExtResource("6_034th")
+scene_path = "res://Scenes/Level 1 (Dojo).tscn"
+
+[node name="Mountain" type="TextureButton" parent="LevelSelectScreen"]
+visible = false
+offset_left = 1043.0
+offset_top = 412.0
+offset_right = 1554.0
+offset_bottom = 918.0
+scale = Vector2(0.35, 0.35)
+texture_normal = ExtResource("5_s34qu")
+script = ExtResource("6_034th")
+scene_path = "res://Scenes/Level 2 (Mountain).tscn"
+
+[node name="TheGreatWave" type="TextureButton" parent="LevelSelectScreen"]
+visible = false
+offset_left = 1043.0
+offset_top = 718.0
+offset_right = 1555.0
+offset_bottom = 1221.0
+scale = Vector2(0.35, 0.35)
+texture_normal = ExtResource("6_y423e")
+script = ExtResource("6_034th")
+scene_path = "res://Scenes/Level 3 (The Great Wave).tscn"
+
+[node name="Easy" type="Label" parent="LevelSelectScreen"]
+visible = false
+offset_left = 1334.0
+offset_top = 163.0
+offset_right = 1664.0
+offset_bottom = 315.0
+scale = Vector2(0.5, 0.5)
+text = "EASY"
+label_settings = SubResource("LabelSettings_t046j")
+
+[node name="Normal" type="Label" parent="LevelSelectScreen"]
+visible = false
+offset_left = 1302.0
+offset_top = 467.0
+offset_right = 1797.0
+offset_bottom = 619.0
+scale = Vector2(0.5, 0.5)
+text = "NORMAL"
+label_settings = SubResource("LabelSettings_sjnn4")
+
+[node name="Hard" type="Label" parent="LevelSelectScreen"]
+visible = false
+offset_left = 1334.0
+offset_top = 774.0
+offset_right = 1664.0
+offset_bottom = 926.0
+scale = Vector2(0.5, 0.5)
+text = "HARD"
+label_settings = SubResource("LabelSettings_po2ac")
+
+[node name="BackToPlay" type="TextureButton" parent="LevelSelectScreen"]
+visible = false
+layout_mode = 0
+offset_left = 30.0
+offset_top = 31.0
+offset_right = 209.0
+offset_bottom = 215.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("10_ukpyo")
+script = ExtResource("11_3fno8")

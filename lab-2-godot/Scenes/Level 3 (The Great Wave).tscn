@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1ness4l50hr3"]
+
+[ext_resource type="Texture2D" uid="uid://bcpcths270crb" path="res://Backgrounds/Great Wave BG.png" id="1_bawru"]
+[ext_resource type="Texture2D" uid="uid://c0fe7ywqhtg24" path="res://Sprites/Mario Arrow.png" id="2_dk2r6"]
+[ext_resource type="Script" path="res://Scripts/BackButton.gd" id="3_5b1ty"]
+
+[node name="TheGreatWave" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(840, 525)
+scale = Vector2(1.64063, 1.41319)
+texture = ExtResource("1_bawru")
+
+[node name="BackArrow" type="TextureButton" parent="."]
+offset_left = 30.0
+offset_top = 31.0
+offset_right = 209.0
+offset_bottom = 215.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("2_dk2r6")
+script = ExtResource("3_5b1ty")

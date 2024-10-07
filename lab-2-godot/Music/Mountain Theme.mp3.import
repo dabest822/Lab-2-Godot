@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ib4q7anya2c1"
+path="res://.godot/imported/Mountain Theme.mp3-175d776c37d13771a662f46492615e54.mp3str"
+
+[deps]
+
+source_file="res://Music/Mountain Theme.mp3"
+dest_files=["res://.godot/imported/Mountain Theme.mp3-175d776c37d13771a662f46492615e54.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

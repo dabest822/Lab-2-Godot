@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dnpy3ikhsk8i8"]
+
+[ext_resource type="Texture2D" uid="uid://l1cfoas4cjws" path="res://Backgrounds/Mountain BG.png" id="1_3a18h"]
+[ext_resource type="Texture2D" uid="uid://c0fe7ywqhtg24" path="res://Sprites/Mario Arrow.png" id="2_4gcjd"]
+[ext_resource type="Script" path="res://Scripts/BackButton.gd" id="3_tq3se"]
+
+[node name="Mountain" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(840, 525.25)
+scale = Vector2(1.64063, 1.41252)
+texture = ExtResource("1_3a18h")
+
+[node name="BackArrow" type="TextureButton" parent="."]
+offset_left = 30.0
+offset_top = 31.0
+offset_right = 209.0
+offset_bottom = 215.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("2_4gcjd")
+script = ExtResource("3_tq3se")

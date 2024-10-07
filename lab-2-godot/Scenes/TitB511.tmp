@@ -1,0 +1,102 @@
+[gd_scene load_steps=12 format=3 uid="uid://eqwu2jln054k"]
+
+[ext_resource type="Texture2D" uid="uid://dkx6fwkllp3l5" path="res://Backgrounds/Title Screen BG.png" id="1_d65d0"]
+[ext_resource type="Texture2D" uid="uid://0oeiq30rugqu" path="res://Logos/Big Ninja Logo.png" id="2_0udse"]
+[ext_resource type="Texture2D" uid="uid://ew72xpg5u8ax" path="res://GUI/Play.png" id="3_wo55f"]
+[ext_resource type="Script" path="res://Scenes/Play.gd" id="4_j7o42"]
+[ext_resource type="Texture2D" uid="uid://yubntc58yqo8" path="res://Icons/Dojo BG Icon.png" id="4_y0t4v"]
+[ext_resource type="Texture2D" uid="uid://yqxt4ipq81y6" path="res://Icons/Mountain BG Icon.png" id="5_s34qu"]
+[ext_resource type="Texture2D" uid="uid://csfj1wl2c7jcw" path="res://Icons/Great Wave BG Icon.png" id="6_y423e"]
+[ext_resource type="FontFile" uid="uid://kcx64u1q6o1o" path="res://ARCADECLASSIC.TTF" id="7_h6oge"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_t046j"]
+font = ExtResource("7_h6oge")
+font_size = 75
+font_color = Color(0.0156863, 1, 0.0666667, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_sjnn4"]
+font = ExtResource("7_h6oge")
+font_size = 75
+font_color = Color(1, 1, 0.027451, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_po2ac"]
+font = ExtResource("7_h6oge")
+font_size = 75
+font_color = Color(1, 0.203922, 0, 1)
+
+[node name="TitleScreen" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(840.107, 525.031)
+scale = Vector2(0.999694, 0.999941)
+texture = ExtResource("1_d65d0")
+
+[node name="Title Logo" type="Sprite2D" parent="."]
+position = Vector2(469, 529)
+scale = Vector2(0.858154, 0.858154)
+texture = ExtResource("2_0udse")
+
+[node name="Play" type="MenuButton" parent="."]
+offset_left = 925.0
+offset_top = 366.0
+offset_right = 1164.0
+offset_bottom = 508.0
+scale = Vector2(2, 2)
+icon = ExtResource("3_wo55f")
+script = ExtResource("4_j7o42")
+
+[node name="Dojo" type="Button" parent="Play"]
+layout_mode = 0
+offset_left = 74.5
+offset_top = -123.5
+offset_right = 582.5
+offset_bottom = 385.5
+icon = ExtResource("4_y0t4v")
+
+[node name="Mountain" type="Button" parent="Play"]
+layout_mode = 0
+offset_left = 75.0
+offset_top = 31.0
+offset_right = 586.0
+offset_bottom = 537.0
+icon = ExtResource("5_s34qu")
+
+[node name="TheGreatWave" type="Button" parent="Play"]
+layout_mode = 0
+offset_left = 74.0
+offset_top = 180.0
+offset_right = 586.0
+offset_bottom = 683.0
+icon = ExtResource("6_y423e")
+
+[node name="Easy" type="Label" parent="Play"]
+layout_mode = 0
+offset_left = 230.5
+offset_top = -95.0
+offset_right = 397.5
+offset_bottom = -17.0
+scale = Vector2(0.5, 0.5)
+text = "EASY"
+label_settings = SubResource("LabelSettings_t046j")
+
+[node name="Normal" type="Label" parent="Play"]
+layout_mode = 0
+offset_left = 216.0
+offset_top = 55.5
+offset_right = 464.0
+offset_bottom = 131.5
+scale = Vector2(0.5, 0.5)
+text = "NORMAL"
+label_settings = SubResource("LabelSettings_sjnn4")
+
+[node name="Hard" type="Label" parent="Play"]
+layout_mode = 0
+offset_left = 231.0
+offset_top = 208.5
+offset_right = 273.0
+offset_bottom = 231.5
+scale = Vector2(0.5, 0.5)
+text = "HARD"
+label_settings = SubResource("LabelSettings_po2ac")
+
+[connection signal="pressed" from="Play" to="Play" method="_on_Play_pressed"]

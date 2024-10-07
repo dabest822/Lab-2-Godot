@@ -1,6 +1,6 @@
 [gd_scene load_steps=20 format=3 uid="uid://eqwu2jln054k"]
 
-[ext_resource type="Script" path="res://Scenes/TitleScreenMusic.gd" id="1_3bma2"]
+[ext_resource type="Script" path="res://Scripts/TitleScreenMusic.gd" id="1_3bma2"]
 [ext_resource type="Texture2D" uid="uid://dkx6fwkllp3l5" path="res://Backgrounds/Title Screen BG.png" id="1_d65d0"]
 [ext_resource type="Texture2D" uid="uid://0oeiq30rugqu" path="res://Logos/Big Ninja Logo.png" id="2_0udse"]
 [ext_resource type="Texture2D" uid="uid://ew72xpg5u8ax" path="res://GUI/Play.png" id="3_wo55f"]

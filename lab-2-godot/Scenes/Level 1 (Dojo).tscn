@@ -30,6 +30,5 @@ script = ExtResource("4_0xqqp")
 
 [node name="DojoMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_uis3a")
-volume_db = -40.0
 
 [editable path="BombSpawner/Bombs"]

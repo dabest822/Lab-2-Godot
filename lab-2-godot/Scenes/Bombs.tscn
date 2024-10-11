@@ -37,6 +37,7 @@ one_shot = true
 
 [node name="ExplodingSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_r28ih")
+volume_db = -15.0
 
 [node name="Area2D" type="Area2D" parent="."]
 

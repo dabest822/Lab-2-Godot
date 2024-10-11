@@ -1,6 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dnpy3ikhsk8i8"]
+[gd_scene load_steps=9 format=3 uid="uid://dnpy3ikhsk8i8"]
 
 [ext_resource type="Texture2D" uid="uid://l1cfoas4cjws" path="res://Backgrounds/Mountain BG.png" id="1_3a18h"]
+[ext_resource type="Script" path="res://Scripts/Timer.gd" id="1_7kn3p"]
+[ext_resource type="FontFile" uid="uid://cxb14iosawgox" path="res://Fonts/super-mario-kart-timer-font.ttf" id="1_mylpi"]
 [ext_resource type="Texture2D" uid="uid://c0fe7ywqhtg24" path="res://Sprites/Mario Arrow.png" id="2_4gcjd"]
 [ext_resource type="Script" path="res://Scripts/BackButton.gd" id="3_tq3se"]
 [ext_resource type="Script" path="res://Scripts/BombSpawner.gd" id="4_frm1n"]
@@ -8,6 +10,18 @@
 [ext_resource type="AudioStream" uid="uid://ib4q7anya2c1" path="res://Music/Mountain Theme.mp3" id="6_tn6a2"]
 
 [node name="Mountain" type="Node2D"]
+script = ExtResource("1_7kn3p")
+
+[node name="Timer" type="CanvasLayer" parent="."]
+
+[node name="LVL2Timer" type="Label" parent="Timer"]
+offset_left = 1560.0
+offset_top = 33.0
+offset_right = 1600.0
+offset_bottom = 133.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("1_mylpi")
+theme_override_font_sizes/font_size = 100
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(840, 525.25)

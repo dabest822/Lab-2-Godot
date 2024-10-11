@@ -1,5 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://cskkrhv6ee6ui"]
+[gd_scene load_steps=9 format=3 uid="uid://cskkrhv6ee6ui"]
 
+[ext_resource type="FontFile" uid="uid://cxb14iosawgox" path="res://Fonts/super-mario-kart-timer-font.ttf" id="1_tbjvs"]
+[ext_resource type="Script" path="res://Scripts/Timer.gd" id="1_thojd"]
 [ext_resource type="Texture2D" uid="uid://c85pbu4fm36tl" path="res://Backgrounds/Dojo BG.png" id="1_wra7e"]
 [ext_resource type="Texture2D" uid="uid://c0fe7ywqhtg24" path="res://Sprites/Mario Arrow.png" id="2_7km4h"]
 [ext_resource type="Script" path="res://Scripts/BackButton.gd" id="3_7bkb6"]
@@ -8,6 +10,18 @@
 [ext_resource type="AudioStream" uid="uid://ciyy4c8a5h5yo" path="res://Music/Dojo Theme.mp3" id="6_uis3a"]
 
 [node name="Dojo" type="Node2D"]
+script = ExtResource("1_thojd")
+
+[node name="Timer" type="CanvasLayer" parent="."]
+
+[node name="LVL1Timer" type="Label" parent="Timer"]
+offset_left = 1560.0
+offset_top = 33.0
+offset_right = 1600.0
+offset_bottom = 133.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("1_tbjvs")
+theme_override_font_sizes/font_size = 100
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(840, 525.25)

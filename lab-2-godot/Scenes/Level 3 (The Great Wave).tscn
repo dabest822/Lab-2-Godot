@@ -1,6 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://d1ness4l50hr3"]
+[gd_scene load_steps=9 format=3 uid="uid://d1ness4l50hr3"]
 
 [ext_resource type="Texture2D" uid="uid://bcpcths270crb" path="res://Backgrounds/Great Wave BG.png" id="1_bawru"]
+[ext_resource type="Script" path="res://Scripts/Timer.gd" id="1_ugmb0"]
+[ext_resource type="FontFile" uid="uid://cxb14iosawgox" path="res://Fonts/super-mario-kart-timer-font.ttf" id="1_yucgb"]
 [ext_resource type="Texture2D" uid="uid://c0fe7ywqhtg24" path="res://Sprites/Mario Arrow.png" id="2_dk2r6"]
 [ext_resource type="Script" path="res://Scripts/BackButton.gd" id="3_5b1ty"]
 [ext_resource type="Script" path="res://Scripts/BombSpawner.gd" id="4_c0pia"]
@@ -8,6 +10,18 @@
 [ext_resource type="AudioStream" uid="uid://cl5pnou7tl8on" path="res://Music/The Great Wave Theme.mp3" id="6_722xm"]
 
 [node name="TheGreatWave" type="Node2D"]
+script = ExtResource("1_ugmb0")
+
+[node name="Timer" type="CanvasLayer" parent="."]
+
+[node name="LVL3Timer" type="Label" parent="Timer"]
+offset_left = 1560.0
+offset_top = 33.0
+offset_right = 1600.0
+offset_bottom = 133.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("1_yucgb")
+theme_override_font_sizes/font_size = 100
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(840, 525)

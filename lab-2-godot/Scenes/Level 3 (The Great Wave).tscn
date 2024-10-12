@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://d1ness4l50hr3"]
+[gd_scene load_steps=11 format=3 uid="uid://d1ness4l50hr3"]
 
 [ext_resource type="Texture2D" uid="uid://bcpcths270crb" path="res://Backgrounds/Great Wave BG.png" id="1_bawru"]
 [ext_resource type="Script" path="res://Scripts/Timer.gd" id="1_ugmb0"]
@@ -8,6 +8,8 @@
 [ext_resource type="Script" path="res://Scripts/BombSpawner.gd" id="4_c0pia"]
 [ext_resource type="PackedScene" uid="uid://c0bm7s58mbjtl" path="res://Scenes/Bombs.tscn" id="5_wi4sh"]
 [ext_resource type="AudioStream" uid="uid://cl5pnou7tl8on" path="res://Music/The Great Wave Theme.mp3" id="6_722xm"]
+[ext_resource type="Script" path="res://Scripts/VeggieSpawner.gd" id="6_qgwt1"]
+[ext_resource type="PackedScene" uid="uid://cyew87wqpy7xh" path="res://Scenes/Vegetables.tscn" id="7_0o8ia"]
 
 [node name="TheGreatWave" type="Node2D"]
 script = ExtResource("1_ugmb0")
@@ -37,6 +39,11 @@ scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("2_dk2r6")
 script = ExtResource("3_5b1ty")
 
+[node name="VeggieSpawner" type="Node2D" parent="."]
+script = ExtResource("6_qgwt1")
+
+[node name="Veggies" parent="VeggieSpawner" instance=ExtResource("7_0o8ia")]
+
 [node name="BombSpawner" type="Node2D" parent="."]
 script = ExtResource("4_c0pia")
 
@@ -45,4 +52,5 @@ script = ExtResource("4_c0pia")
 [node name="GreatWaveMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_722xm")
 
+[editable path="VeggieSpawner/Veggies"]
 [editable path="BombSpawner/Bombs"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cskkrhv6ee6ui"]
+[gd_scene load_steps=11 format=3 uid="uid://cskkrhv6ee6ui"]
 
 [ext_resource type="FontFile" uid="uid://cxb14iosawgox" path="res://Fonts/super-mario-kart-timer-font.ttf" id="1_tbjvs"]
 [ext_resource type="Script" path="res://Scripts/Timer.gd" id="1_thojd"]
@@ -8,6 +8,8 @@
 [ext_resource type="Script" path="res://Scripts/BombSpawner.gd" id="4_0xqqp"]
 [ext_resource type="PackedScene" uid="uid://c0bm7s58mbjtl" path="res://Scenes/Bombs.tscn" id="5_2khnf"]
 [ext_resource type="AudioStream" uid="uid://ciyy4c8a5h5yo" path="res://Music/Dojo Theme.mp3" id="6_uis3a"]
+[ext_resource type="Script" path="res://Scripts/VeggieSpawner.gd" id="9_2q3if"]
+[ext_resource type="PackedScene" uid="uid://cyew87wqpy7xh" path="res://Scenes/Vegetables.tscn" id="10_s5q34"]
 
 [node name="Dojo" type="Node2D"]
 script = ExtResource("1_thojd")
@@ -45,4 +47,10 @@ script = ExtResource("4_0xqqp")
 [node name="DojoMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_uis3a")
 
+[node name="VeggieSpawner" type="Node2D" parent="."]
+script = ExtResource("9_2q3if")
+
+[node name="Veggies" parent="VeggieSpawner" instance=ExtResource("10_s5q34")]
+
 [editable path="BombSpawner/Bombs"]
+[editable path="VeggieSpawner/Veggies"]

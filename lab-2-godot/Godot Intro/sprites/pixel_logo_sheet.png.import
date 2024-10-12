@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://i8upb1qjjown"
-path="res://.godot/imported/SLICE_LINE.png-b62beeabf4febe113c5d4a3009dcfbfb.ctex"
+uid="uid://c642kbhhpfxba"
+path="res://.godot/imported/pixel_logo_sheet.png-ea73e32f2f7534f92eeeb55e6b30864e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/SLICE_LINE.png"
-dest_files=["res://.godot/imported/SLICE_LINE.png-b62beeabf4febe113c5d4a3009dcfbfb.ctex"]
+source_file="res://sprites/pixel_logo_sheet.png"
+dest_files=["res://.godot/imported/pixel_logo_sheet.png-ea73e32f2f7534f92eeeb55e6b30864e.ctex"]
 
 [params]
 

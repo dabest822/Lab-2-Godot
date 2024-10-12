@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dnpy3ikhsk8i8"]
+[gd_scene load_steps=11 format=3 uid="uid://dnpy3ikhsk8i8"]
 
 [ext_resource type="Texture2D" uid="uid://l1cfoas4cjws" path="res://Backgrounds/Mountain BG.png" id="1_3a18h"]
 [ext_resource type="Script" path="res://Scripts/Timer.gd" id="1_7kn3p"]
@@ -8,6 +8,8 @@
 [ext_resource type="Script" path="res://Scripts/BombSpawner.gd" id="4_frm1n"]
 [ext_resource type="PackedScene" uid="uid://c0bm7s58mbjtl" path="res://Scenes/Bombs.tscn" id="5_foul5"]
 [ext_resource type="AudioStream" uid="uid://ib4q7anya2c1" path="res://Music/Mountain Theme.mp3" id="6_tn6a2"]
+[ext_resource type="Script" path="res://Scripts/VeggieSpawner.gd" id="9_h3mpt"]
+[ext_resource type="PackedScene" uid="uid://cyew87wqpy7xh" path="res://Scenes/Vegetables.tscn" id="10_0enp5"]
 
 [node name="Mountain" type="Node2D"]
 script = ExtResource("1_7kn3p")
@@ -45,4 +47,10 @@ script = ExtResource("4_frm1n")
 [node name="MountainMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_tn6a2")
 
+[node name="VeggieSpawner" type="Node2D" parent="."]
+script = ExtResource("9_h3mpt")
+
+[node name="Veggies" parent="VeggieSpawner" instance=ExtResource("10_0enp5")]
+
 [editable path="BombSpawner/Bombs"]
+[editable path="VeggieSpawner/Veggies"]

@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://cyew87wqpy7xh"]
+
+[ext_resource type="SpriteFrames" uid="uid://cjr17q6ac1bxx" path="res://Animations/Veggies.tres" id="1_0a5sc"]
+[ext_resource type="Script" path="res://Scenes/VeggieFalling.gd" id="1_011o0"]
+[ext_resource type="AudioStream" uid="uid://8r5uslsycwbi" path="res://Music/Slice.mp3" id="1_v2w2y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ytdi"]
+size = Vector2(121, 127)
+
+[node name="Veggies" type="Node2D"]
+script = ExtResource("1_011o0")
+
+[node name="FallingVeggies" type="AnimatedSprite2D" parent="."]
+position = Vector2(76, -69)
+scale = Vector2(4, 4)
+sprite_frames = ExtResource("1_0a5sc")
+animation = &"Broccoli"
+
+[node name="CutVeggies" type="Node2D" parent="."]
+
+[node name="CutLeft" type="Sprite2D" parent="CutVeggies"]
+position = Vector2(245, 52)
+region_enabled = true
+
+[node name="CutRight" type="Sprite2D" parent="CutVeggies"]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(74.5, -67.5)
+shape = SubResource("RectangleShape2D_0ytdi")
+
+[node name="VeggieCutSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_v2w2y")
+
+[node name="SwordSlashTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true

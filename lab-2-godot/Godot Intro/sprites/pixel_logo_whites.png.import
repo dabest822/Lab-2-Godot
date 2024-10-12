@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbkeamvj76c2o"
-path="res://.godot/imported/FRUIT_LINE.png-755d411231b46f6a63d657f57085d4aa.ctex"
+uid="uid://e0n4vmyhxvse"
+path="res://.godot/imported/pixel_logo_whites.png-c1fdad45bca27db5e82b3d4c075c9e77.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/FRUIT_LINE.png"
-dest_files=["res://.godot/imported/FRUIT_LINE.png-755d411231b46f6a63d657f57085d4aa.ctex"]
+source_file="res://sprites/pixel_logo_whites.png"
+dest_files=["res://.godot/imported/pixel_logo_whites.png-c1fdad45bca27db5e82b3d4c075c9e77.ctex"]
 
 [params]
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://cyew87wqpy7xh"]
 
 [ext_resource type="SpriteFrames" uid="uid://cjr17q6ac1bxx" path="res://Animations/Veggies.tres" id="1_0a5sc"]
-[ext_resource type="Script" path="res://Scenes/VeggieFalling.gd" id="1_011o0"]
+[ext_resource type="Script" path="res://Scripts/VeggieFalling.gd" id="1_011o0"]
 [ext_resource type="AudioStream" uid="uid://8r5uslsycwbi" path="res://Music/Slice.mp3" id="1_v2w2y"]
 [ext_resource type="Material" uid="uid://dmfaifxm5vq78" path="res://Shaders/Cut.tres" id="3_rtpb2"]
 [ext_resource type="Texture2D" uid="uid://dthlm75qobtgt" path="res://Sprites/VEGGIES_LINE.png" id="3_v126g"]

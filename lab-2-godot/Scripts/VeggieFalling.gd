@@ -13,6 +13,25 @@ var is_cut = false
 var velocity_left = Vector2()  # Velocity for the left half
 var velocity_right = Vector2()  # Velocity for the right half
 
+# Dictionary to store ideal midpoints for each veggie type
+var veggie_midpoints = {
+	"BellPepper": 0.3,
+	"Broccoli": 0.5,
+	"Cabbage": 0.3,
+	"Carrot": 0.7,
+	"Cauliflower": 0.9,
+	"Corn": 0.3,
+	"Eggplant": 0.5,
+	"HotPepper": 0.3,
+	"Leek": 0.7,
+	"Lettuce": 0.1,
+	"Mushroom": 0.9,
+	"Onion": 0.5,
+	"Potato": 0.7,
+	"Pumpkin": 0.9,
+	"Tomato": 0.1
+}
+
 func _ready():
 	# Randomly assign a veggie animation
 	var veggie_types = ["BellPepper", "Broccoli", "Cabbage", "Carrot", "Cauliflower", 
@@ -59,13 +78,33 @@ func cut():
 			audio_player.play()
 			# Debug to mark when the sound is played
 			print("Sound played at: ", Time.get_ticks_msec())
-		
+
+		# Get the appropriate midpoint value for the current veggie
+		var current_animation = sprite.animation
+		var split_offset = veggie_midpoints.get(current_animation, 0.0)
+
+		# Update shaders for cut sprites
+		update_cut_shaders(split_offset)
+
 		# Show the cut veggies
 		show_cut_veggies()
 
 		# Remove the veggie node after 2 seconds (after the cut pieces fall)
 		await get_tree().create_timer(2.0).timeout
 		queue_free()
+
+func update_cut_shaders(split_offset):
+	# Apply the split offset to the left and right halves using their shaders
+	var left_material = cut_sprite_left.material as ShaderMaterial
+	var right_material = cut_sprite_right.material as ShaderMaterial
+
+	if left_material and right_material:
+		left_material.set_shader_parameter("split_offset", split_offset)
+		right_material.set_shader_parameter("split_offset", split_offset)
+		left_material.set_shader_parameter("is_left_side", true)
+		right_material.set_shader_parameter("is_left_side", false)
+	else:
+		print("Error: ShaderMaterial not assigned correctly.")
 
 func show_cut_veggies():
 	# Set positions of cut sprites to match original position
@@ -77,20 +116,6 @@ func show_cut_veggies():
 	cut_sprite_right.animation = sprite.animation
 	cut_sprite_left.frame = sprite.frame          # Set frame number
 	cut_sprite_right.frame = sprite.frame
-
-	# Apply shader for each half properly
-	var left_material = cut_sprite_left.material as ShaderMaterial
-	var right_material = cut_sprite_right.material as ShaderMaterial
-
-	if left_material and right_material:
-		left_material.set_shader_parameter("is_left_side", true)   # Left sprite shows left half
-		right_material.set_shader_parameter("is_left_side", false) # Right sprite shows right half
-
-		# Debugging to verify shader parameters are set correctly
-		print("Left sprite shader is_left_side: ", left_material.get_shader_parameter("is_left_side"))
-		print("Right sprite shader is_left_side: ", right_material.get_shader_parameter("is_left_side"))
-	else:
-		print("Error: ShaderMaterial not assigned correctly.")
 
 	# Show both the left and right cut sprites
 	cut_sprite_left.show()

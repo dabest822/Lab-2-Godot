@@ -1,59 +1,76 @@
 extends Node2D
 
-@onready var sprite = $FallingVeggies  # The main sprite for the veggie
-@onready var audio_player = $VeggieCutSound  # Reference to the audio player
-@onready var area = $Area2D  # Reference to Area2D for click detection
+@onready var sprite = $FallingVeggies  # Main falling veggie
+@onready var cut_sprite = $FallingCutVeggies  # Cut version of the veggie
+@onready var audio_player = $VeggieCutSound  # Audio player for the cut sound
+@onready var area = $Area2D  # Input detection
 
 @export var fall_speed: float = 250.0
-@export var rotation_speed: float = 2.0  # Rotation speed as it falls
+@export var rotation_speed: float = 2.0
 
 var is_cut = false
 
 func _ready():
-	# Make the area input pickable for the mouse clicks
+	# Randomly assign a veggie animation
+	var veggie_types = ["BellPepper", "Broccoli", "Cabbage", "Carrot", "Cauliflower", 
+						"Corn", "Eggplant", "HotPepper", "Leek", "Lettuce", "Mushroom", 
+						"Onion", "Potato", "Pumpkin", "Tomato"]
+	var random_veggie = veggie_types[randi() % veggie_types.size()]
+	sprite.play(random_veggie)
+	cut_sprite.play(random_veggie)
+
+	# Hide the cut version at start
+	cut_sprite.hide()
+
+	# Enable input on the veggie
 	area.input_pickable = true
 	area.connect("input_event", Callable(self, "_on_veggie_clicked"))
 
 func _process(delta):
 	if not is_cut:
 		position.y += fall_speed * delta
-		sprite.rotate(rotation_speed * delta)  # Rotate while falling
+		sprite.rotate(rotation_speed * delta)
 
-# Handling the click
-func _on_veggie_clicked(_viewport, event, _shapeidx):
+func _on_veggie_clicked(_viewport, event, _shape_idx):
 	if event.is_action_pressed("Click"):
-		print("Veggie clicked!")
 		cut()
 
-# Cutting the veggie (will apply the shader to cut)
 func cut():
 	if not is_cut:
 		is_cut = true
-		sprite.hide()  # Hide the main veggie sprite
-		show_cut_veggie()  # Show the cut version of the veggie
-
+		sprite.hide()  # Hide the falling veggie
+		
+		# Play the cut sound immediately
 		if audio_player:
 			audio_player.play()
+		
+		show_cut_veggie()  # Show cut version and start animation
 
-		# After showing the cut halves, queue free the veggie after 2 seconds
+		# Remove veggie after 2 seconds
 		await get_tree().create_timer(2.0).timeout
 		queue_free()
 
-# Show the cut veggie
 func show_cut_veggie():
-	sprite.show()
-	# Apply the cut shader (this will either show the left or right half)
-	sprite.material.set("shader_param/is_left_side", true)  # Apply left side first
+	cut_sprite.show()  # Show the cut sprite
+
+	# Apply shader for the left half
+	cut_sprite.material.set("shader_param/is_left_side", true)
+
+	# Start moving the veggie halves
 	move_cut_halves()
 
-# Function to animate the veggie halves as they move apart and fall
 func move_cut_halves():
-	var move_direction_left = Vector2(-1, 1)  # Left half moves left and down
-	var move_direction_right = Vector2(1, 1)  # Right half moves right and down
-	var move_speed = fall_speed * 0.8  # Slower fall speed for cut halves
+	var move_direction_left = Vector2(-1, 1)  # Move left half down and left
+	var move_direction_right = Vector2(1, 1)  # Move right half down and right
+	var move_speed = fall_speed * 0.8
+	var delta_time = 0.02
 
-	var delta_time = 0.02  # Adjust as needed for smooth movement
-
-	# Simulate the movement (you can handle this in _process if needed)
-	sprite.position += move_direction_left * move_speed * delta_time  # Move left half
-	sprite.position += move_direction_right * move_speed * delta_time  # Move right half
+	# Simulate the movement
+	await get_tree().create_timer(delta_time).timeout
+	
+	# Move the left half first
+	cut_sprite.position += move_direction_left * move_speed * delta_time
+	cut_sprite.material.set("shader_param/is_left_side", false)  # Switch to right side
+	
+	# Move the right half
+	cut_sprite.position += move_direction_right * move_speed * delta_time

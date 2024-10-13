@@ -25,105 +25,90 @@ position = Vector2(180, -70)
 scale = Vector2(4, 4)
 
 [node name="CutBellPepper" type="Sprite2D" parent="CutVeggies"]
-visible = false
 material = ExtResource("3_rtpb2")
 texture = ExtResource("3_v126g")
 region_enabled = true
 region_rect = Rect2(33.7346, 0, 28.1447, 31.9998)
 
 [node name="CutBroccoli" type="Sprite2D" parent="CutVeggies"]
-visible = false
 material = ExtResource("3_rtpb2")
 texture = ExtResource("3_v126g")
 region_enabled = true
 region_rect = Rect2(62.3503, 0, 33.7749, 33.4121)
 
 [node name="CutCabbage" type="Sprite2D" parent="CutVeggies"]
-visible = false
 material = ExtResource("3_rtpb2")
 texture = ExtResource("3_v126g")
 region_enabled = true
 region_rect = Rect2(32.8422, 129.456, 29.6327, 30.2699)
 
 [node name="CutCarrot" type="Sprite2D" parent="CutVeggies"]
-visible = false
 material = ExtResource("3_rtpb2")
 texture = ExtResource("3_v126g")
 region_enabled = true
 region_rect = Rect2(98.1616, 0, 29.6327, 30.9989)
 
 [node name="CutCauliflower" type="Sprite2D" parent="CutVeggies"]
-visible = false
 material = ExtResource("3_rtpb2")
 texture = ExtResource("3_v126g")
 region_enabled = true
 region_rect = Rect2(127.157, 1.36622, 32.843, 30.9072)
 
 [node name="CutCorn" type="Sprite2D" parent="CutVeggies"]
-visible = false
 material = ExtResource("3_rtpb2")
 texture = ExtResource("3_v126g")
 region_enabled = true
 region_rect = Rect2(32.5236, 32.592, 29.9513, 31.5445)
 
 [node name="CutEggplant" type="Sprite2D" parent="CutVeggies"]
-visible = false
 material = ExtResource("3_rtpb2")
 texture = ExtResource("3_v126g")
 region_enabled = true
 region_rect = Rect2(63.4308, 32.9107, 33.1376, 31.8631)
 
 [node name="CutHotPepper" type="Sprite2D" parent="CutVeggies"]
-visible = false
 material = ExtResource("3_rtpb2")
 texture = ExtResource("3_v126g")
 region_enabled = true
 region_rect = Rect2(33.1609, 66.6855, 29.7311, 29.314)
 
 [node name="CutLeek" type="Sprite2D" parent="CutVeggies"]
-visible = false
 material = ExtResource("3_rtpb2")
 texture = ExtResource("3_v126g")
 region_enabled = true
 region_rect = Rect2(96.887, 65.411, 30.5885, 29.314)
 
 [node name="CutLettuce" type="Sprite2D" parent="CutVeggies"]
-visible = false
 material = ExtResource("3_rtpb2")
 texture = ExtResource("3_v126g")
 region_enabled = true
 region_rect = Rect2(0, 65.0924, 31.5677, 31.2258)
 
 [node name="CutMushroom" type="Sprite2D" parent="CutVeggies"]
-visible = false
 material = ExtResource("3_rtpb2")
 texture = ExtResource("3_v126g")
 region_enabled = true
 region_rect = Rect2(131.936, 67.3228, 24.5346, 28.0395)
 
 [node name="CutOnion" type="Sprite2D" parent="CutVeggies"]
-visible = false
 material = ExtResource("3_rtpb2")
 texture = ExtResource("3_v126g")
 region_enabled = true
 region_rect = Rect2(69.8034, 131.049, 20.711, 25.4905)
 
 [node name="CutPotato" type="Sprite2D" parent="CutVeggies"]
-visible = false
 material = ExtResource("3_rtpb2")
 texture = ExtResource("3_v126g")
 region_enabled = true
 region_rect = Rect2(100.711, 100.46, 22.9414, 23.26)
 
 [node name="CutPumpkin" type="Sprite2D" parent="CutVeggies"]
-visible = false
 material = ExtResource("3_rtpb2")
 texture = ExtResource("3_v126g")
 region_enabled = true
 region_rect = Rect2(128.431, 95.0437, 30.9072, 32.5003)
 
 [node name="CutTomato" type="Sprite2D" parent="CutVeggies"]
-visible = false
 material = ExtResource("3_rtpb2")
 texture = ExtResource("3_v126g")
 region_enabled = true

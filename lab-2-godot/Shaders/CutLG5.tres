@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dtbaul0bvnd6l"]
+
+[ext_resource type="Shader" path="res://Shaders/CutLG5.gdshader" id="1_pisqr"]
+
+[resource]
+shader = ExtResource("1_pisqr")
+shader_parameter/split_offset = 0.0

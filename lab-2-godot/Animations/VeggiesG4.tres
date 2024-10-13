@@ -1,0 +1,42 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://rxxpx664vpj2"]
+
+[ext_resource type="Texture2D" uid="uid://dthlm75qobtgt" path="res://Sprites/VEGGIES_LINE.png" id="1_4nld4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ni4lv"]
+atlas = ExtResource("1_4nld4")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8i60h"]
+atlas = ExtResource("1_4nld4")
+region = Rect2(128, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bhvi0"]
+atlas = ExtResource("1_4nld4")
+region = Rect2(128, 96, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ni4lv")
+}],
+"loop": true,
+"name": &"Cauliflower",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8i60h")
+}],
+"loop": true,
+"name": &"Mushroom",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bhvi0")
+}],
+"loop": true,
+"name": &"Pumpkin",
+"speed": 5.0
+}]

@@ -1,7 +1,0 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dmfaifxm5vq78"]
-
-[ext_resource type="Shader" path="res://Shaders/CutRight.gdshader" id="1_m2upd"]
-
-[resource]
-shader = ExtResource("1_m2upd")
-shader_parameter/split_offset = 0.0

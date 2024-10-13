@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://7cjxrutulhrd"]
+
+[ext_resource type="Shader" path="res://Shaders/CutLG3.gdshader" id="1_y1w3h"]
+
+[resource]
+shader = ExtResource("1_y1w3h")
+shader_parameter/split_offset = 0.0

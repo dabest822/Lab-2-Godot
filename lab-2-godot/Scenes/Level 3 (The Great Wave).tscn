@@ -52,5 +52,7 @@ script = ExtResource("4_c0pia")
 [node name="GreatWaveMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_722xm")
 
+[connection signal="tree_exited" from="BombSpawner" to="." method="_on_bomb_removed"]
+
 [editable path="VeggieSpawner/Veggies"]
 [editable path="BombSpawner/Bombs"]

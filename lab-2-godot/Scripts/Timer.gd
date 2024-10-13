@@ -42,13 +42,13 @@ func _ready():
 func setup_timer_for_difficulty(difficulty: int):
 	match difficulty:
 		1:  # Easy Mode (180 seconds, normal speed)
-			time_remaining = 18.0  # 3 minutes
+			time_remaining = 180.0  # 3 minutes
 			countdown_speed = 1.0  # Normal speed (1 second per real second)
 		2:  # Medium Mode (150 seconds, faster countdown)
-			time_remaining = 15.0  # 2 minutes 30 seconds
+			time_remaining = 150.0  # 2 minutes 30 seconds
 			countdown_speed = 0.8  # Countdown faster (0.8 seconds per real second)
 		3:  # Hard Mode (120 seconds, even faster countdown)
-			time_remaining = 12.0  # 2 minutes
+			time_remaining = 120.0  # 2 minutes
 			countdown_speed = 0.6  # Countdown even faster (0.6 seconds per real second)
 	print("Starting level with difficulty: ", difficulty, " Timer: ", time_remaining, " Speed: ", countdown_speed)
 
@@ -95,3 +95,6 @@ func stop_bombs():
 # Switch to the Game Over scene when the timer reaches zero
 func end_level():
 	get_tree().change_scene_to_file("res://Scenes/GameOver.tscn")
+
+func _on_bomb_removed() -> void:
+	pass # Replace with function body.

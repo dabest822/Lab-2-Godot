@@ -91,3 +91,6 @@ func explode():
 func _on_explosion_finished():
 	print("Explosion animation finished")
 	queue_free()  # Remove the bomb immediately after the explosion animation finishes
+
+func _on_bomb_removed() -> void:
+	pass # Replace with function body.

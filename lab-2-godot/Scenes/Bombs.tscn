@@ -32,7 +32,7 @@ sprite_frames = ExtResource("2_453gh")
 animation = &"Explode"
 
 [node name="SwordSlashTimer" type="Timer" parent="."]
-wait_time = 0.1
+wait_time = 0.05
 one_shot = true
 
 [node name="ExplodingSound" type="AudioStreamPlayer" parent="."]
@@ -52,3 +52,5 @@ shape = SubResource("CapsuleShape2D_13ron")
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(80, -127)
 shape = SubResource("CircleShape2D_ijmy0")
+
+[connection signal="tree_exited" from="." to="." method="_on_bomb_removed"]

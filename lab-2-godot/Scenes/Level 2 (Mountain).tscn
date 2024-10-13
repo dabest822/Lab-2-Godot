@@ -44,13 +44,15 @@ script = ExtResource("4_frm1n")
 
 [node name="Bombs" parent="BombSpawner" instance=ExtResource("5_foul5")]
 
-[node name="MountainMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_tn6a2")
-
 [node name="VeggieSpawner" type="Node2D" parent="."]
 script = ExtResource("9_h3mpt")
 
 [node name="Veggies" parent="VeggieSpawner" instance=ExtResource("10_0enp5")]
+
+[node name="MountainMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_tn6a2")
+
+[connection signal="tree_exited" from="BombSpawner/Bombs" to="." method="_on_bomb_removed"]
 
 [editable path="BombSpawner/Bombs"]
 [editable path="VeggieSpawner/Veggies"]

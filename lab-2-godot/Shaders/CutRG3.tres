@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cqgufrgck0u34"]
+
+[ext_resource type="Shader" path="res://Shaders/CutRG3.gdshader" id="1_4a0vn"]
+
+[resource]
+shader = ExtResource("1_4a0vn")
+shader_parameter/split_offset = 0.0

@@ -1,10 +1,23 @@
-[gd_scene load_steps=7 format=3 uid="uid://cyew87wqpy7xh"]
+[gd_scene load_steps=20 format=3 uid="uid://cyew87wqpy7xh"]
 
-[ext_resource type="SpriteFrames" uid="uid://cjr17q6ac1bxx" path="res://Animations/Veggies.tres" id="1_0a5sc"]
+[ext_resource type="SpriteFrames" uid="uid://cjr17q6ac1bxx" path="res://Animations/VeggiesG1.tres" id="1_0a5sc"]
 [ext_resource type="Script" path="res://Scripts/VeggieFalling.gd" id="1_011o0"]
 [ext_resource type="AudioStream" uid="uid://s20djycwy5pl" path="res://Music/Slice.mp3" id="1_v2w2y"]
-[ext_resource type="Material" uid="uid://dmfaifxm5vq78" path="res://Shaders/CutR.tres" id="3_esdjy"]
-[ext_resource type="Material" uid="uid://bm6bd4si48861" path="res://Shaders/CutL.tres" id="6_87o0s"]
+[ext_resource type="SpriteFrames" uid="uid://ry76ke42k2p6" path="res://Animations/VeggiesAll.tres" id="2_b0uf2"]
+[ext_resource type="Material" uid="uid://ctjmyy7syxpr" path="res://Shaders/CutRG1.tres" id="3_esdjy"]
+[ext_resource type="SpriteFrames" uid="uid://kwt081no7vam" path="res://Animations/VeggiesG2.tres" id="3_wfaga"]
+[ext_resource type="SpriteFrames" uid="uid://dr6y0acg8q66l" path="res://Animations/VeggiesG3.tres" id="4_81r0j"]
+[ext_resource type="Material" uid="uid://bho62n87eo5ff" path="res://Shaders/CutRG2.tres" id="4_xx86c"]
+[ext_resource type="Material" uid="uid://bhktqcm731qs5" path="res://Shaders/CutLG2.tres" id="5_4gh1x"]
+[ext_resource type="SpriteFrames" uid="uid://rxxpx664vpj2" path="res://Animations/VeggiesG4.tres" id="5_8fble"]
+[ext_resource type="Material" uid="uid://bm6bd4si48861" path="res://Shaders/CutLG1.tres" id="6_87o0s"]
+[ext_resource type="Material" uid="uid://cqgufrgck0u34" path="res://Shaders/CutRG3.tres" id="6_443ab"]
+[ext_resource type="Material" uid="uid://7cjxrutulhrd" path="res://Shaders/CutLG3.tres" id="6_mlxnh"]
+[ext_resource type="SpriteFrames" uid="uid://bx3xe3qx5v3i" path="res://Animations/VeggiesG5.tres" id="6_xov3c"]
+[ext_resource type="Material" uid="uid://cahlw8g4q5nq0" path="res://Shaders/CutLG4.tres" id="7_4nqna"]
+[ext_resource type="Material" uid="uid://dtbaul0bvnd6l" path="res://Shaders/CutLG5.tres" id="8_ot34x"]
+[ext_resource type="Material" uid="uid://cjek77ynlfcon" path="res://Shaders/CutRG4.tres" id="8_suqr0"]
+[ext_resource type="Material" uid="uid://t8siyj85cpco" path="res://Shaders/CutRG5.tres" id="10_p5spu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ytdi"]
 size = Vector2(121, 127)
@@ -15,10 +28,10 @@ script = ExtResource("1_011o0")
 [node name="FallingVeggies" type="AnimatedSprite2D" parent="."]
 position = Vector2(200, -70)
 scale = Vector2(4, 4)
-sprite_frames = ExtResource("1_0a5sc")
-animation = &"Tomato"
+sprite_frames = ExtResource("2_b0uf2")
+animation = &"Broccoli"
 
-[node name="FallingCutVeggiesRight" type="AnimatedSprite2D" parent="."]
+[node name="FallingCutVeggiesRightG1" type="AnimatedSprite2D" parent="."]
 visible = false
 material = ExtResource("3_esdjy")
 position = Vector2(342, -71)
@@ -26,13 +39,77 @@ scale = Vector2(4, 4)
 sprite_frames = ExtResource("1_0a5sc")
 animation = &"Broccoli"
 
-[node name="FallingCutVeggiesLeft" type="AnimatedSprite2D" parent="."]
+[node name="FallingCutVeggiesRightG2" type="AnimatedSprite2D" parent="."]
+visible = false
+material = ExtResource("4_xx86c")
+position = Vector2(342, -71)
+scale = Vector2(4, 4)
+sprite_frames = ExtResource("3_wfaga")
+animation = &"BellPepper"
+
+[node name="FallingCutVeggiesRightG3" type="AnimatedSprite2D" parent="."]
+visible = false
+material = ExtResource("6_443ab")
+position = Vector2(342, -71)
+scale = Vector2(4, 4)
+sprite_frames = ExtResource("4_81r0j")
+animation = &"Carrot"
+
+[node name="FallingCutVeggiesRightG4" type="AnimatedSprite2D" parent="."]
+visible = false
+material = ExtResource("8_suqr0")
+position = Vector2(342, -71)
+scale = Vector2(4, 4)
+sprite_frames = ExtResource("5_8fble")
+animation = &"Mushroom"
+
+[node name="FallingCutVeggiesRightG5" type="AnimatedSprite2D" parent="."]
+visible = false
+material = ExtResource("10_p5spu")
+position = Vector2(342, -71)
+scale = Vector2(4, 4)
+sprite_frames = ExtResource("6_xov3c")
+animation = &"Lettuce"
+
+[node name="FallingCutVeggiesLeftG1" type="AnimatedSprite2D" parent="."]
 visible = false
 material = ExtResource("6_87o0s")
 position = Vector2(342, -71)
 scale = Vector2(4, 4)
 sprite_frames = ExtResource("1_0a5sc")
 animation = &"Broccoli"
+
+[node name="FallingCutVeggiesLeftG2" type="AnimatedSprite2D" parent="."]
+visible = false
+material = ExtResource("5_4gh1x")
+position = Vector2(342, -71)
+scale = Vector2(4, 4)
+sprite_frames = ExtResource("3_wfaga")
+animation = &"BellPepper"
+
+[node name="FallingCutVeggiesLeftG3" type="AnimatedSprite2D" parent="."]
+visible = false
+material = ExtResource("6_mlxnh")
+position = Vector2(342, -71)
+scale = Vector2(4, 4)
+sprite_frames = ExtResource("4_81r0j")
+animation = &"Carrot"
+
+[node name="FallingCutVeggiesLeftG4" type="AnimatedSprite2D" parent="."]
+visible = false
+material = ExtResource("7_4nqna")
+position = Vector2(342, -71)
+scale = Vector2(4, 4)
+sprite_frames = ExtResource("5_8fble")
+animation = &"Mushroom"
+
+[node name="FallingCutVeggiesLeftG5" type="AnimatedSprite2D" parent="."]
+visible = false
+material = ExtResource("8_ot34x")
+position = Vector2(342, -71)
+scale = Vector2(4, 4)
+sprite_frames = ExtResource("6_xov3c")
+animation = &"Lettuce"
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -44,5 +121,5 @@ shape = SubResource("RectangleShape2D_0ytdi")
 stream = ExtResource("1_v2w2y")
 
 [node name="SwordSlashTimer" type="Timer" parent="."]
-wait_time = 0.1
+wait_time = 0.05
 one_shot = true

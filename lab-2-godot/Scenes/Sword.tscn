@@ -6,6 +6,6 @@
 position = Vector2(100, -50)
 
 [node name="SwordSlash" type="Sprite2D" parent="."]
-position = Vector2(14, -16)
+position = Vector2(9, -14)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("1_bn21i")

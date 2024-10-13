@@ -1,0 +1,54 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://kwt081no7vam"]
+
+[ext_resource type="Texture2D" uid="uid://dthlm75qobtgt" path="res://Sprites/VEGGIES_LINE.png" id="1_lbvvf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jp3ps"]
+atlas = ExtResource("1_lbvvf")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_beopo"]
+atlas = ExtResource("1_lbvvf")
+region = Rect2(32, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dsntm"]
+atlas = ExtResource("1_lbvvf")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6gjfd"]
+atlas = ExtResource("1_lbvvf")
+region = Rect2(32, 64, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jp3ps")
+}],
+"loop": true,
+"name": &"BellPepper",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_beopo")
+}],
+"loop": true,
+"name": &"Cabbage",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dsntm")
+}],
+"loop": true,
+"name": &"Corn",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6gjfd")
+}],
+"loop": true,
+"name": &"HotPepper",
+"speed": 5.0
+}]

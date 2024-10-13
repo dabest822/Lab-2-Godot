@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dmfaifxm5vq78"]
+
+[ext_resource type="Shader" path="res://Shaders/Cut.gdshader" id="1_kgqb8"]
+
+[resource]
+shader = ExtResource("1_kgqb8")
+shader_parameter/is_left_side = false
+shader_parameter/scan_resolution = 0.01

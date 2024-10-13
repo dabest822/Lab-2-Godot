@@ -27,7 +27,7 @@ func _spawn_veggie():
 		
 		# Apply fall speed based on difficulty
 		var speed_multiplier = 1 + (GlobalState.current_difficulty - 1) * 0.5
-		veggie_instance.fall_speed = base_fall_speed * speed_multiplier
+		veggie_instance.set("fall_speed", base_fall_speed * speed_multiplier)
 		
 		add_child(veggie_instance)
-		print("Veggie spawned with fall speed: ", veggie_instance.fall_speed, " at position: ", veggie_instance.position)
+		print("Veggie spawned with fall speed: ", veggie_instance.get("fall_speed"), " at position: ", veggie_instance.position)

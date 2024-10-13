@@ -1,7 +1,0 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dmfaifxm5vq78"]
-
-[ext_resource type="Shader" path="res://Shaders/Cut.gdshader" id="1_cm670"]
-
-[resource]
-shader = ExtResource("1_cm670")
-shader_parameter/is_left_side = true

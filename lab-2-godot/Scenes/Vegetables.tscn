@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cyew87wqpy7xh"]
+[gd_scene load_steps=7 format=3 uid="uid://cyew87wqpy7xh"]
 
 [ext_resource type="SpriteFrames" uid="uid://cjr17q6ac1bxx" path="res://Animations/Veggies.tres" id="1_0a5sc"]
 [ext_resource type="Script" path="res://Scripts/VeggieFalling.gd" id="1_011o0"]
-[ext_resource type="AudioStream" uid="uid://8r5uslsycwbi" path="res://Music/Slice.mp3" id="1_v2w2y"]
-[ext_resource type="Material" uid="uid://dmfaifxm5vq78" path="res://Shaders/Cut.tres" id="3_rtpb2"]
+[ext_resource type="AudioStream" uid="uid://s20djycwy5pl" path="res://Music/Slice.mp3" id="1_v2w2y"]
+[ext_resource type="Material" uid="uid://dmfaifxm5vq78" path="res://Shaders/CutR.tres" id="3_rtpb2"]
+[ext_resource type="Material" uid="uid://bm6bd4si48861" path="res://Shaders/CutL.tres" id="4_epbj4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ytdi"]
 size = Vector2(121, 127)
@@ -17,12 +18,20 @@ scale = Vector2(4, 4)
 sprite_frames = ExtResource("1_0a5sc")
 animation = &"BellPepper"
 
-[node name="FallingCutVeggies" type="AnimatedSprite2D" parent="."]
+[node name="FallingCutVeggiesRight" type="AnimatedSprite2D" parent="."]
 material = ExtResource("3_rtpb2")
 position = Vector2(342, -71)
 scale = Vector2(4, 4)
 sprite_frames = ExtResource("1_0a5sc")
-animation = &"Cabbage"
+animation = &"BellPepper"
+
+[node name="FallingCutVeggiesLeft" type="AnimatedSprite2D" parent="."]
+visible = false
+material = ExtResource("4_epbj4")
+position = Vector2(342, -71)
+scale = Vector2(4, 4)
+sprite_frames = ExtResource("1_0a5sc")
+animation = &"BellPepper"
 
 [node name="Area2D" type="Area2D" parent="."]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d1ness4l50hr3"]
+[gd_scene load_steps=12 format=3 uid="uid://d1ness4l50hr3"]
 
 [ext_resource type="Texture2D" uid="uid://bcpcths270crb" path="res://Backgrounds/Great Wave BG.png" id="1_bawru"]
 [ext_resource type="Script" path="res://Scripts/Timer.gd" id="1_ugmb0"]
@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://cl5pnou7tl8on" path="res://Music/The Great Wave Theme.mp3" id="6_722xm"]
 [ext_resource type="Script" path="res://Scripts/VeggieSpawner.gd" id="6_qgwt1"]
 [ext_resource type="PackedScene" uid="uid://cyew87wqpy7xh" path="res://Scenes/Vegetables.tscn" id="7_0o8ia"]
+[ext_resource type="PackedScene" uid="uid://bx8pmogvjgnxu" path="res://Scenes/Score.tscn" id="11_3lton"]
 
 [node name="TheGreatWave" type="Node2D"]
 script = ExtResource("1_ugmb0")
@@ -52,7 +53,10 @@ script = ExtResource("4_c0pia")
 [node name="GreatWaveMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_722xm")
 
+[node name="Scoring" parent="." instance=ExtResource("11_3lton")]
+
 [connection signal="tree_exited" from="BombSpawner" to="." method="_on_bomb_removed"]
 
 [editable path="VeggieSpawner/Veggies"]
 [editable path="BombSpawner/Bombs"]
+[editable path="Scoring"]

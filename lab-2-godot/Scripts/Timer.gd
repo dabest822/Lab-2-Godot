@@ -3,28 +3,25 @@ extends Node2D
 var timer_label: Label
 var time_remaining: float = 0.0
 var countdown_speed: float = 1.0
-
-var sword_slash_scene = preload("res://Scenes/Sword.tscn")  # Adjust path as needed
+var sword_slash_scene = preload("res://Scenes/Sword.tscn")
 var current_slash: Sprite2D = null
+@onready var score_manager = $Scoring/ScoreManager
 
 func _ready():
 	setup_current_level()
 	setup_timer()
 	setup_sword_slash()
+	setup_score_manager()
 	set_process(true)
 
 func setup_current_level():
 	var scene_name = get_tree().current_scene.name
 	print("Current scene name is: ", scene_name)
 	match scene_name:
-		"Dojo":
-			GlobalState.current_level = "Dojo"
-		"Mountain":
-			GlobalState.current_level = "Mountain"
-		"TheGreatWave":
-			GlobalState.current_level = "GreatWave"
-		_:
-			print("Warning: Unrecognized scene, no current level set.")
+		"Dojo": GlobalState.current_level = "Dojo"
+		"Mountain": GlobalState.current_level = "Mountain"
+		"TheGreatWave": GlobalState.current_level = "GreatWave"
+		_: print("Warning: Unrecognized scene, no current level set.")
 
 func setup_timer():
 	var canvas_layer = $Timer
@@ -46,21 +43,21 @@ func setup_timer():
 
 func setup_timer_for_difficulty(difficulty: int):
 	match difficulty:
-		1:
-			time_remaining = 180.0
-			countdown_speed = 1.0
-		2:
-			time_remaining = 150.0
-			countdown_speed = 0.8
-		3:
-			time_remaining = 120.0
-			countdown_speed = 0.6
+		1: time_remaining = 180.0; countdown_speed = 1.0
+		2: time_remaining = 150.0; countdown_speed = 0.8
+		3: time_remaining = 120.0; countdown_speed = 0.6
 	print("Starting level with difficulty: ", difficulty, " Timer: ", time_remaining, " Speed: ", countdown_speed)
 
 func setup_sword_slash():
 	var sword_instance = sword_slash_scene.instantiate()
 	add_child(sword_instance)
 	current_slash = sword_instance.get_node("SwordSlash")
+
+func setup_score_manager():
+	if score_manager:
+		score_manager.reset_score()
+	else:
+		print("Warning: ScoreManager not found")
 
 func _process(delta):
 	time_remaining -= delta / countdown_speed
@@ -94,5 +91,17 @@ func stop_bombs():
 func end_level():
 	get_tree().change_scene_to_file("res://Scenes/GameOver.tscn")
 
+func _on_veggie_cut(veggie_name):
+	if score_manager:
+		score_manager._on_veggie_cut(veggie_name)
+	else:
+		print("Warning: ScoreManager not found, couldn't add points for", veggie_name)
+
+func _on_bomb_hit():
+	if score_manager:
+		score_manager._on_bomb_hit()
+	else:
+		print("Warning: ScoreManager not found, couldn't process bomb hit")
+
 func _on_bomb_removed() -> void:
-	pass # Replace with function body.
+	pass # Replace with function body if needed

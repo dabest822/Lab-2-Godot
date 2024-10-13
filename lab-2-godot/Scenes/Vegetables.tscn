@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cyew87wqpy7xh"]
+[gd_scene load_steps=7 format=3 uid="uid://cyew87wqpy7xh"]
 
 [ext_resource type="SpriteFrames" uid="uid://cjr17q6ac1bxx" path="res://Animations/Veggies.tres" id="1_0a5sc"]
 [ext_resource type="Script" path="res://Scenes/VeggieFalling.gd" id="1_011o0"]
 [ext_resource type="AudioStream" uid="uid://8r5uslsycwbi" path="res://Music/Slice.mp3" id="1_v2w2y"]
+[ext_resource type="Material" uid="uid://dmfaifxm5vq78" path="res://Shaders/Cut.tres" id="3_rtpb2"]
+[ext_resource type="Texture2D" uid="uid://dthlm75qobtgt" path="res://Sprites/VEGGIES_LINE.png" id="3_v126g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ytdi"]
 size = Vector2(121, 127)
@@ -11,23 +13,126 @@ size = Vector2(121, 127)
 script = ExtResource("1_011o0")
 
 [node name="FallingVeggies" type="AnimatedSprite2D" parent="."]
-position = Vector2(76, -69)
+visible = false
+material = ExtResource("3_rtpb2")
+position = Vector2(200, -70)
 scale = Vector2(4, 4)
 sprite_frames = ExtResource("1_0a5sc")
-animation = &"Broccoli"
+animation = &"BellPepper"
 
 [node name="CutVeggies" type="Node2D" parent="."]
+position = Vector2(180, -70)
+scale = Vector2(4, 4)
 
-[node name="CutLeft" type="Sprite2D" parent="CutVeggies"]
-position = Vector2(245, 52)
+[node name="CutBellPepper" type="Sprite2D" parent="CutVeggies"]
+visible = false
+material = ExtResource("3_rtpb2")
+texture = ExtResource("3_v126g")
 region_enabled = true
+region_rect = Rect2(33.7346, 0, 28.1447, 31.9998)
 
-[node name="CutRight" type="Sprite2D" parent="CutVeggies"]
+[node name="CutBroccoli" type="Sprite2D" parent="CutVeggies"]
+visible = false
+material = ExtResource("3_rtpb2")
+texture = ExtResource("3_v126g")
+region_enabled = true
+region_rect = Rect2(62.3503, 0, 33.7749, 33.4121)
+
+[node name="CutCabbage" type="Sprite2D" parent="CutVeggies"]
+visible = false
+material = ExtResource("3_rtpb2")
+texture = ExtResource("3_v126g")
+region_enabled = true
+region_rect = Rect2(32.8422, 129.456, 29.6327, 30.2699)
+
+[node name="CutCarrot" type="Sprite2D" parent="CutVeggies"]
+visible = false
+material = ExtResource("3_rtpb2")
+texture = ExtResource("3_v126g")
+region_enabled = true
+region_rect = Rect2(98.1616, 0, 29.6327, 30.9989)
+
+[node name="CutCauliflower" type="Sprite2D" parent="CutVeggies"]
+visible = false
+material = ExtResource("3_rtpb2")
+texture = ExtResource("3_v126g")
+region_enabled = true
+region_rect = Rect2(127.157, 1.36622, 32.843, 30.9072)
+
+[node name="CutCorn" type="Sprite2D" parent="CutVeggies"]
+visible = false
+material = ExtResource("3_rtpb2")
+texture = ExtResource("3_v126g")
+region_enabled = true
+region_rect = Rect2(32.5236, 32.592, 29.9513, 31.5445)
+
+[node name="CutEggplant" type="Sprite2D" parent="CutVeggies"]
+visible = false
+material = ExtResource("3_rtpb2")
+texture = ExtResource("3_v126g")
+region_enabled = true
+region_rect = Rect2(63.4308, 32.9107, 33.1376, 31.8631)
+
+[node name="CutHotPepper" type="Sprite2D" parent="CutVeggies"]
+visible = false
+material = ExtResource("3_rtpb2")
+texture = ExtResource("3_v126g")
+region_enabled = true
+region_rect = Rect2(33.1609, 66.6855, 29.7311, 29.314)
+
+[node name="CutLeek" type="Sprite2D" parent="CutVeggies"]
+visible = false
+material = ExtResource("3_rtpb2")
+texture = ExtResource("3_v126g")
+region_enabled = true
+region_rect = Rect2(96.887, 65.411, 30.5885, 29.314)
+
+[node name="CutLettuce" type="Sprite2D" parent="CutVeggies"]
+visible = false
+material = ExtResource("3_rtpb2")
+texture = ExtResource("3_v126g")
+region_enabled = true
+region_rect = Rect2(0, 65.0924, 31.5677, 31.2258)
+
+[node name="CutMushroom" type="Sprite2D" parent="CutVeggies"]
+visible = false
+material = ExtResource("3_rtpb2")
+texture = ExtResource("3_v126g")
+region_enabled = true
+region_rect = Rect2(131.936, 67.3228, 24.5346, 28.0395)
+
+[node name="CutOnion" type="Sprite2D" parent="CutVeggies"]
+visible = false
+material = ExtResource("3_rtpb2")
+texture = ExtResource("3_v126g")
+region_enabled = true
+region_rect = Rect2(69.8034, 131.049, 20.711, 25.4905)
+
+[node name="CutPotato" type="Sprite2D" parent="CutVeggies"]
+visible = false
+material = ExtResource("3_rtpb2")
+texture = ExtResource("3_v126g")
+region_enabled = true
+region_rect = Rect2(100.711, 100.46, 22.9414, 23.26)
+
+[node name="CutPumpkin" type="Sprite2D" parent="CutVeggies"]
+visible = false
+material = ExtResource("3_rtpb2")
+texture = ExtResource("3_v126g")
+region_enabled = true
+region_rect = Rect2(128.431, 95.0437, 30.9072, 32.5003)
+
+[node name="CutTomato" type="Sprite2D" parent="CutVeggies"]
+visible = false
+material = ExtResource("3_rtpb2")
+texture = ExtResource("3_v126g")
+region_enabled = true
+region_rect = Rect2(2.89095, 164.505, 26.765, 24.8532)
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(74.5, -67.5)
+position = Vector2(200, -67.5)
 shape = SubResource("RectangleShape2D_0ytdi")
 
 [node name="VeggieCutSound" type="AudioStreamPlayer" parent="."]

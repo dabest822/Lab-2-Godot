@@ -53,28 +53,15 @@ func _spawn_veggie():
 		veggie_instance.set("fall_speed", base_fall_speed * speed_multiplier)
 		
 		# Set the appropriate split offset based on veggie type
-		var split_offset = veggie_split_offsets.get(random_veggie, 0.0)
-		
-		# Update the split offset in the shaders of the veggie instance
-		var cut_left_sprite = veggie_instance.get_node("FallingCutVeggiesLeft")
-		var cut_right_sprite = veggie_instance.get_node("FallingCutVeggiesRight")
-		if cut_left_sprite and cut_right_sprite:
-			var left_material = cut_left_sprite.material as ShaderMaterial
-			var right_material = cut_right_sprite.material as ShaderMaterial
-			if left_material and right_material:
-				left_material.set_shader_parameter("split_offset", split_offset)
-				right_material.set_shader_parameter("split_offset", split_offset)
-			else:
-				print("Error: ShaderMaterial not assigned correctly for cut sprites")
-		else:
-			print("Error: Could not find cut sprites in veggie_instance")
+		veggie_instance.set("split_offset", veggie_split_offsets.get(random_veggie, 0.0))
 
 		# Access the correct AnimatedSprite2D node within the veggie instance
 		var falling_sprite = veggie_instance.get_node("FallingVeggies")
 		if falling_sprite:
 			falling_sprite.play(random_veggie)
+			print("Set veggie animation to: ", random_veggie)
 		else:
 			print("Error: Could not find FallingVeggies node in veggie_instance")
 
 		add_child(veggie_instance)
-		print("Veggie spawned with fall speed: ", veggie_instance.get("fall_speed"), " at position: ", veggie_instance.position)
+		print("Spawned veggie type: ", random_veggie)

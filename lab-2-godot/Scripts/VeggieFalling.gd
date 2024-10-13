@@ -50,6 +50,10 @@ func _ready():
 	area.input_pickable = true
 	area.connect("input_event", Callable(self, "_on_veggie_clicked"))
 
+	# Set the appropriate split offset based on veggie type
+	var split_offset = veggie_midpoints.get(random_veggie, 0.0)
+	update_cut_shaders(split_offset)
+
 func _process(delta):
 	# Continue regular falling if not yet cut
 	if not is_cut:
@@ -71,34 +75,27 @@ func _on_veggie_clicked(_viewport, event, _shape_idx):
 func cut():
 	if not is_cut:
 		is_cut = true
-		sprite.hide()  # Hide the main falling veggie sprite
+		var current_animation = sprite.animation
+		print("Cutting veggie type: ", current_animation)
+		var split_offset = veggie_midpoints.get(current_animation, 0.0)
+		print("Using split offset: ", split_offset)
 		
-		# Play the cut sound immediately
+		sprite.hide()
 		if audio_player:
 			audio_player.play()
-			# Debug to mark when the sound is played
-			print("Sound played at: ", Time.get_ticks_msec())
-
-		# Get the appropriate midpoint value for the current veggie
-		var current_animation = sprite.animation
-		var split_offset = veggie_midpoints.get(current_animation, 0.0)
-
-		# Update shaders for cut sprites
+		
 		update_cut_shaders(split_offset)
-
-		# Show the cut veggies
 		show_cut_veggies()
-
-		# Remove the veggie node after 2 seconds (after the cut pieces fall)
+		
 		await get_tree().create_timer(2.0).timeout
 		queue_free()
 
 func update_cut_shaders(split_offset):
-	# Apply the split offset to the left and right halves using their shaders
 	var left_material = cut_sprite_left.material as ShaderMaterial
 	var right_material = cut_sprite_right.material as ShaderMaterial
 
 	if left_material and right_material:
+		print("Updating shaders with split_offset: ", split_offset)
 		left_material.set_shader_parameter("split_offset", split_offset)
 		right_material.set_shader_parameter("split_offset", split_offset)
 		left_material.set_shader_parameter("is_left_side", true)

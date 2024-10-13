@@ -1,22 +1,73 @@
-[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://cjr17q6ac1bxx"]
+[gd_resource type="SpriteFrames" load_steps=17 format=3 uid="uid://cjr17q6ac1bxx"]
 
 [ext_resource type="Texture2D" uid="uid://dthlm75qobtgt" path="res://Sprites/VEGGIES_LINE.png" id="1_koo1j"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jp3ps"]
+atlas = ExtResource("1_koo1j")
+region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o6ebk"]
 atlas = ExtResource("1_koo1j")
 region = Rect2(64, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_beopo"]
+atlas = ExtResource("1_koo1j")
+region = Rect2(32, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_luyx4"]
+atlas = ExtResource("1_koo1j")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ni4lv"]
+atlas = ExtResource("1_koo1j")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dsntm"]
+atlas = ExtResource("1_koo1j")
+region = Rect2(32, 32, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_0dox6"]
 atlas = ExtResource("1_koo1j")
 region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6gjfd"]
+atlas = ExtResource("1_koo1j")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4xhhr"]
+atlas = ExtResource("1_koo1j")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wj8x8"]
+atlas = ExtResource("1_koo1j")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8i60h"]
+atlas = ExtResource("1_koo1j")
+region = Rect2(128, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j82bv"]
 atlas = ExtResource("1_koo1j")
 region = Rect2(64, 128, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_hyp8y"]
+atlas = ExtResource("1_koo1j")
+region = Rect2(96, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bhvi0"]
+atlas = ExtResource("1_koo1j")
+region = Rect2(128, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0sigb"]
+atlas = ExtResource("1_koo1j")
+region = Rect2(0, 160, 32, 32)
+
 [resource]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jp3ps")
+}],
 "loop": true,
 "name": &"BellPepper",
 "speed": 5.0
@@ -29,22 +80,34 @@ animations = [{
 "name": &"Broccoli",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_beopo")
+}],
 "loop": true,
 "name": &"Cabbage",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_luyx4")
+}],
 "loop": true,
 "name": &"Carrot",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ni4lv")
+}],
 "loop": true,
 "name": &"Cauliflower",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dsntm")
+}],
 "loop": true,
 "name": &"Corn",
 "speed": 5.0
@@ -57,22 +120,34 @@ animations = [{
 "name": &"Eggplant",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6gjfd")
+}],
 "loop": true,
 "name": &"HotPepper",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4xhhr")
+}],
 "loop": true,
 "name": &"Leek",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wj8x8")
+}],
 "loop": true,
 "name": &"Lettuce",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8i60h")
+}],
 "loop": true,
 "name": &"Mushroom",
 "speed": 5.0
@@ -85,17 +160,26 @@ animations = [{
 "name": &"Onion",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hyp8y")
+}],
 "loop": true,
 "name": &"Potato",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bhvi0")
+}],
 "loop": true,
 "name": &"Pumpkin",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0sigb")
+}],
 "loop": true,
 "name": &"Tomato",
 "speed": 5.0

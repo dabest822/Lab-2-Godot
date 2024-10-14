@@ -64,6 +64,8 @@ func _on_veggie_clicked(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		cut()
 
+signal veggie_cut(veggie_name)
+
 func cut():
 	if not is_cut:
 		is_cut = true
@@ -77,12 +79,10 @@ func cut():
 		cut_right_nodes[selected_index].visible = true
 		move_cut_halves()
 
-		var timer = Timer.new()
-		timer.wait_time = 2.0
-		timer.one_shot = true
-		add_child(timer)
-		timer.connect("timeout", Callable(self, "_on_timeout"))
-		timer.start()
+		# Emit the signal when a veggie is cut
+		emit_signal("veggie_cut", sprite.animation)
+
+		# ... rest of the function
 
 func sync_cut_pieces_with_main_sprite():
 	var current_animation = sprite.animation

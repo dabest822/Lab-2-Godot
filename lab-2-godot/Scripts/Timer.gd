@@ -5,7 +5,12 @@ var time_remaining: float = 0.0
 var countdown_speed: float = 1.0
 var sword_slash_scene = preload("res://Scenes/Sword.tscn")
 var current_slash: Sprite2D = null
-@onready var score_manager = $Scoring/ScoreManager
+
+var score: int = 0
+var bomb_hits: int = 0
+const MAX_BOMB_HITS: int = 3
+
+@onready var score_label = $Scoring/Score
 
 func _ready():
 	setup_current_level()
@@ -54,10 +59,9 @@ func setup_sword_slash():
 	current_slash = sword_instance.get_node("SwordSlash")
 
 func setup_score_manager():
-	if score_manager:
-		score_manager.reset_score()
-	else:
-		print("Warning: ScoreManager not found")
+	score = 0
+	bomb_hits = 0
+	update_score_display()
 
 func _process(delta):
 	time_remaining -= delta / countdown_speed
@@ -91,17 +95,28 @@ func stop_bombs():
 func end_level():
 	get_tree().change_scene_to_file("res://Scenes/GameOver.tscn")
 
-func _on_veggie_cut(veggie_name):
-	if score_manager:
-		score_manager._on_veggie_cut(veggie_name)
-	else:
-		print("Warning: ScoreManager not found, couldn't add points for", veggie_name)
+func add_points(_veggie_name: String):
+	# Add logic to determine points based on veggie type
+	var points = 10  # Default points, adjust as needed
+	score += points
+	update_score_display()
 
-func _on_bomb_hit():
-	if score_manager:
-		score_manager._on_bomb_hit()
-	else:
-		print("Warning: ScoreManager not found, couldn't process bomb hit")
+func hit_bomb():
+	bomb_hits += 1
+	score = max(0, score - 30)  # Subtract 30 points, don't go below 0
+	update_score_display()
+	if bomb_hits >= MAX_BOMB_HITS:
+		end_level()
 
-func _on_bomb_removed() -> void:
-	pass # Replace with function body if needed
+func update_score_display():
+	if score_label:
+		score_label.text = "Score: %d" % score
+	else:
+		print("Warning: score_label not found")
+
+# These functions should be called from VeggieSpawner and BombSpawner
+func on_veggie_cut(veggie_name):
+	add_points(veggie_name)
+
+func on_bomb_hit():
+	hit_bomb()

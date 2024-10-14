@@ -61,6 +61,9 @@ func _spawn_veggie():
 		else:
 			print("Error: Could not find FallingVeggies node in veggie_instance")
 
+		# Connect the veggie_cut signal
+		veggie_instance.connect("veggie_cut", Callable(self, "_on_veggie_cut"))
+
 		add_child(veggie_instance)
 		print("Spawned veggie type: ", random_veggie)
 	else:
@@ -72,4 +75,10 @@ func _determine_veggie_group(veggie_name):
 		if veggie_name in veggie_groups[group_name]:
 			return group_name
 	return ""
-	
+
+func _on_veggie_cut(veggie_name):
+	var level_controller = get_node("..")  # Assuming VeggieSpawner is a direct child of the level node
+	if level_controller:
+		level_controller.on_veggie_cut(veggie_name)
+	else:
+		print("Error: Level controller not found")

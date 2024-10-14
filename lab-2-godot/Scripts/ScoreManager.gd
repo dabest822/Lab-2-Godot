@@ -73,7 +73,22 @@ func hit_bomb():
 func game_over():
 	print("Game Over! Too many bomb hits.")
 	naruto_animation.play("idle")
-	# Implement additional game over logic here
+	
+	# Create a short delay before transitioning to the game-over scene
+	var timer = Timer.new()
+	timer.wait_time = 1.0  # 1-second delay
+	timer.one_shot = true
+	add_child(timer)
+	timer.start()
+
+	await timer.timeout  # Wait until the timer times out
+	change_to_game_over_scene()
+
+func change_to_game_over_scene():
+	if get_tree().has_current_scene():
+		get_tree().change_scene("res://Scenes/GameOver.tscn")
+	else:
+		print("No current scene found.")
 
 func get_random_veggie():
 	var rand = randf()

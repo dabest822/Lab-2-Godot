@@ -68,6 +68,9 @@ func _spawn_bomb():
 	var speed_multiplier = 1 + (GlobalState.current_difficulty - 1) * 0.5
 	bomb_instance.fall_speed = base_fall_speed * speed_multiplier
 
+	# Connect the bomb_hit signal
+	bomb_instance.connect("bomb_hit", Callable(self, "_on_bomb_hit"))
+
 	add_child(bomb_instance)  # Add the bomb to the scene first
 	current_bomb_count += 1  # Increase bomb count
 	print("Bomb spawned with fall speed: ", bomb_instance.fall_speed)
@@ -90,6 +93,13 @@ func _on_bomb_removed():
 	current_bomb_count -= 1
 	current_bomb_count = max(current_bomb_count, 0)  # Prevent negative values
 	print("Bomb removed, current bomb count: ", current_bomb_count)
+
+func _on_bomb_hit():
+	var level_controller = get_node("..")  # Assuming BombSpawner is a direct child of the level node
+	if level_controller:
+		level_controller.on_bomb_hit()
+	else:
+		print("Error: Level controller not found")
 
 func _process(_delta):
 	pass

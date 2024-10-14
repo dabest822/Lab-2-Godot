@@ -68,6 +68,8 @@ func _on_bomb_clicked(_viewport, event, _shapeidx):
 		print("Bomb clicked!")
 		explode()
 
+signal bomb_hit
+
 func explode():
 	print("Explode function called")
 	if not is_exploding:
@@ -77,11 +79,22 @@ func explode():
 		print("Playing explosion animation")
 		explosion.play("Explode")  # Make sure your animation is named "Explode"
 
+		# Emit the signal when a bomb is hit
+		emit_signal("bomb_hit")
+
 		# Play the explosion sound
 		if audio_player:
-			audio_player.get_parent().remove_child(audio_player)  # Remove from the current parent
-			get_tree().root.add_child(audio_player)  # Reparent it to the scene root to keep it alive
-			audio_player.owner = get_tree().root
+			# Ensure the audio player is detached from its current parent
+			if audio_player.get_parent() != null:
+				audio_player.get_parent().remove_child(audio_player)
+
+			# Get the root node and add the audio player as its child
+			var root_node = get_tree().root
+			if root_node != null:
+				root_node.add_child(audio_player)
+				audio_player.owner = root_node
+
+			# Play the sound
 			audio_player.play()
 
 		# Connect the animation finished signal only if not already connected
@@ -92,5 +105,5 @@ func _on_explosion_finished():
 	print("Explosion animation finished")
 	queue_free()  # Remove the bomb immediately after the explosion animation finishes
 
-func _on_bomb_removed() -> void:
-	pass # Replace with function body.
+func _on_bomb_removed():
+	pass  # Replace with function body

@@ -59,3 +59,4 @@ stream = ExtResource("6_uis3a")
 
 [editable path="BombSpawner/Bombs"]
 [editable path="VeggieSpawner/Veggies"]
+[editable path="Scoring"]

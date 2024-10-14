@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbkeamvj76c2o"
-path="res://.godot/imported/FRUIT_LINE.png-755d411231b46f6a63d657f57085d4aa.ctex"
+uid="uid://dm72qp7fbthwx"
+path="res://.godot/imported/Ninja.png-a62b5758a9c443f89ca79f1277fb8325.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/FRUIT_LINE.png"
-dest_files=["res://.godot/imported/FRUIT_LINE.png-755d411231b46f6a63d657f57085d4aa.ctex"]
+source_file="res://Sprites/Ninja.png"
+dest_files=["res://.godot/imported/Ninja.png-a62b5758a9c443f89ca79f1277fb8325.ctex"]
 
 [params]
 

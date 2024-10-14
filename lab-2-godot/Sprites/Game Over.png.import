@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://eyd4ls3sa8hx"
-path="res://.godot/imported/Cut 3.png-72138ba3a21afcf247ac1c9e3da00814.ctex"
+uid="uid://8h6q7iugqfhj"
+path="res://.godot/imported/Game Over.png-a2fce43c24b4856c6336ac62852a63b9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Cut 3.png"
-dest_files=["res://.godot/imported/Cut 3.png-72138ba3a21afcf247ac1c9e3da00814.ctex"]
+source_file="res://Sprites/Game Over.png"
+dest_files=["res://.godot/imported/Game Over.png-a2fce43c24b4856c6336ac62852a63b9.ctex"]
 
 [params]
 

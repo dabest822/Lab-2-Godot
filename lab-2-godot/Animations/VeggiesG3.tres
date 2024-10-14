@@ -1,0 +1,42 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://dr6y0acg8q66l"]
+
+[ext_resource type="Texture2D" uid="uid://dthlm75qobtgt" path="res://Sprites/VEGGIES_LINE.png" id="1_eoonk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_luyx4"]
+atlas = ExtResource("1_eoonk")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4xhhr"]
+atlas = ExtResource("1_eoonk")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hyp8y"]
+atlas = ExtResource("1_eoonk")
+region = Rect2(96, 96, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_luyx4")
+}],
+"loop": true,
+"name": &"Carrot",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4xhhr")
+}],
+"loop": true,
+"name": &"Leek",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hyp8y")
+}],
+"loop": true,
+"name": &"Potato",
+"speed": 5.0
+}]

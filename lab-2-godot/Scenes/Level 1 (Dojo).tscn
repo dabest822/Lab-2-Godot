@@ -1,13 +1,30 @@
-[gd_scene load_steps=7 format=3 uid="uid://cskkrhv6ee6ui"]
+[gd_scene load_steps=12 format=3 uid="uid://cskkrhv6ee6ui"]
 
+[ext_resource type="FontFile" uid="uid://cxb14iosawgox" path="res://Fonts/super-mario-kart-timer-font.ttf" id="1_tbjvs"]
+[ext_resource type="Script" path="res://Scripts/Timer.gd" id="1_thojd"]
 [ext_resource type="Texture2D" uid="uid://c85pbu4fm36tl" path="res://Backgrounds/Dojo BG.png" id="1_wra7e"]
 [ext_resource type="Texture2D" uid="uid://c0fe7ywqhtg24" path="res://Sprites/Mario Arrow.png" id="2_7km4h"]
 [ext_resource type="Script" path="res://Scripts/BackButton.gd" id="3_7bkb6"]
 [ext_resource type="Script" path="res://Scripts/BombSpawner.gd" id="4_0xqqp"]
 [ext_resource type="PackedScene" uid="uid://c0bm7s58mbjtl" path="res://Scenes/Bombs.tscn" id="5_2khnf"]
 [ext_resource type="AudioStream" uid="uid://ciyy4c8a5h5yo" path="res://Music/Dojo Theme.mp3" id="6_uis3a"]
+[ext_resource type="Script" path="res://Scripts/VeggieSpawner.gd" id="9_2q3if"]
+[ext_resource type="PackedScene" uid="uid://cyew87wqpy7xh" path="res://Scenes/Vegetables.tscn" id="10_s5q34"]
+[ext_resource type="PackedScene" uid="uid://bx8pmogvjgnxu" path="res://Scenes/Score.tscn" id="11_h1fyk"]
 
 [node name="Dojo" type="Node2D"]
+script = ExtResource("1_thojd")
+
+[node name="Timer" type="CanvasLayer" parent="."]
+
+[node name="LVL1Timer" type="Label" parent="Timer"]
+offset_left = 1560.0
+offset_top = 33.0
+offset_right = 1600.0
+offset_bottom = 133.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("1_tbjvs")
+theme_override_font_sizes/font_size = 100
 
 [node name="ScoreAndTimer" type="CanvasLayer" parent="."]
 
@@ -38,7 +55,18 @@ script = ExtResource("4_0xqqp")
 
 [node name="Bombs" parent="BombSpawner" instance=ExtResource("5_2khnf")]
 
+[node name="VeggieSpawner" type="Node2D" parent="."]
+script = ExtResource("9_2q3if")
+
+[node name="Veggies" parent="VeggieSpawner" instance=ExtResource("10_s5q34")]
+
 [node name="DojoMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_uis3a")
 
+[node name="Scoring" parent="." instance=ExtResource("11_h1fyk")]
+
+[connection signal="tree_exited" from="BombSpawner/Bombs" to="." method="_on_bomb_removed"]
+
 [editable path="BombSpawner/Bombs"]
+[editable path="VeggieSpawner/Veggies"]
+[editable path="Scoring"]

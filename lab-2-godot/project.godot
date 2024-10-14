@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Lab 2 Godot"
-run/main_scene="res://Scenes/Title Screen.tscn"
+run/main_scene="res://Intro/pixel_splash.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 
 [autoload]

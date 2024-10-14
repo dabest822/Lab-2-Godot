@@ -1,11 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://cul1uv0vhx5pg"]
+[gd_scene load_steps=3 format=3 uid="uid://cul1uv0vhx5pg"]
 
-[ext_resource type="Texture2D" uid="uid://eyd4ls3sa8hx" path="res://Sprites/Cut 3.png" id="1_bn21i"]
+[ext_resource type="Texture2D" uid="uid://eyd4ls3sa8hx" path="res://Sprites/Cut.png" id="1_bn21i"]
+[ext_resource type="Script" path="res://Scripts/SwordSlash.gd" id="2_yklmf"]
 
 [node name="Sword" type="Node2D"]
 position = Vector2(100, -50)
 
 [node name="SwordSlash" type="Sprite2D" parent="."]
-position = Vector2(14, -16)
+position = Vector2(9, -14)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("1_bn21i")
+script = ExtResource("2_yklmf")
+
+[node name="SwordSlashTimer" type="Timer" parent="SwordSlash"]
+wait_time = 0.05
+one_shot = true

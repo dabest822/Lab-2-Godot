@@ -2,6 +2,7 @@ extends Node
 
 var start_in_level_select: bool = false
 var current_difficulty: int = 1
+var current_level: String = ""  # Track the current level
 
 # Map levels to difficulties
 var level_difficulties = {

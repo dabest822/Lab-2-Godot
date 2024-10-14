@@ -1,0 +1,42 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://cjr17q6ac1bxx"]
+
+[ext_resource type="Texture2D" uid="uid://dthlm75qobtgt" path="res://Sprites/VEGGIES_LINE.png" id="1_qjlvf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6ebk"]
+atlas = ExtResource("1_qjlvf")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0dox6"]
+atlas = ExtResource("1_qjlvf")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j82bv"]
+atlas = ExtResource("1_qjlvf")
+region = Rect2(64, 128, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o6ebk")
+}],
+"loop": true,
+"name": &"Broccoli",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0dox6")
+}],
+"loop": true,
+"name": &"Eggplant",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j82bv")
+}],
+"loop": true,
+"name": &"Onion",
+"speed": 5.0
+}]

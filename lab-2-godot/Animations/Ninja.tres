@@ -1,0 +1,79 @@
+[gd_resource type="SpriteFrames" load_steps=11 format=3 uid="uid://buc7a5lpc3ch4"]
+
+[ext_resource type="Texture2D" uid="uid://dm72qp7fbthwx" path="res://Sprites/Ninja.png" id="1_fgqfh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ip5i"]
+atlas = ExtResource("1_fgqfh")
+region = Rect2(42, 84, 42, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wtrbo"]
+atlas = ExtResource("1_fgqfh")
+region = Rect2(252, 84, 42, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8jqqx"]
+atlas = ExtResource("1_fgqfh")
+region = Rect2(252, 42, 42, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fvmb6"]
+atlas = ExtResource("1_fgqfh")
+region = Rect2(210, 42, 42, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_apibt"]
+atlas = ExtResource("1_fgqfh")
+region = Rect2(42, 0, 42, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fag41"]
+atlas = ExtResource("1_fgqfh")
+region = Rect2(84, 0, 42, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ktpl"]
+atlas = ExtResource("1_fgqfh")
+region = Rect2(126, 0, 42, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u75s0"]
+atlas = ExtResource("1_fgqfh")
+region = Rect2(168, 0, 42, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vmktk"]
+atlas = ExtResource("1_fgqfh")
+region = Rect2(210, 0, 42, 42)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ip5i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wtrbo")
+}],
+"loop": false,
+"name": &"Ninja",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8jqqx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fvmb6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_apibt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fag41")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ktpl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u75s0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vmktk")
+}],
+"loop": false,
+"name": &"Ninja2",
+"speed": 10.0
+}]

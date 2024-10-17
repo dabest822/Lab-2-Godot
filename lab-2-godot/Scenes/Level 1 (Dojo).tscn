@@ -26,16 +26,6 @@ scale = Vector2(0.5, 0.5)
 theme_override_fonts/font = ExtResource("1_tbjvs")
 theme_override_font_sizes/font_size = 100
 
-[node name="ScoreAndTimer" type="CanvasLayer" parent="."]
-
-[node name="Score" type="Label" parent="ScoreAndTimer"]
-offset_right = 40.0
-offset_bottom = 23.0
-
-[node name="Timer" type="Label" parent="ScoreAndTimer"]
-offset_right = 40.0
-offset_bottom = 23.0
-
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(840, 525.25)
 scale = Vector2(1.64063, 1.41252)
@@ -60,10 +50,10 @@ script = ExtResource("9_2q3if")
 
 [node name="Veggies" parent="VeggieSpawner" instance=ExtResource("10_s5q34")]
 
+[node name="Scoring" parent="." instance=ExtResource("11_h1fyk")]
+
 [node name="DojoMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_uis3a")
-
-[node name="Scoring" parent="." instance=ExtResource("11_h1fyk")]
 
 [connection signal="tree_exited" from="BombSpawner/Bombs" to="." method="_on_bomb_removed"]
 

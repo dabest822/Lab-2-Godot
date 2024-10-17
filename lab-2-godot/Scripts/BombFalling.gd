@@ -28,6 +28,9 @@ func _ready():
 	# Connect the Timer's timeout signal to the delete function
 	sword_slash_timer.connect("timeout", Callable(self, "delete_sword_slash_after_delay"))
 
+	# Connect the bomb_hit signal to a handler function
+	self.connect("bomb_hit", Callable(self, "_on_bomb_hit"))
+
 func _process(delta):
 	if not is_exploding:
 		position.y += fall_speed * delta
@@ -104,6 +107,9 @@ func explode():
 func _on_explosion_finished():
 	print("Explosion animation finished")
 	queue_free()  # Remove the bomb immediately after the explosion animation finishes
+
+func _on_bomb_hit():
+	print("Bomb was hit and exploded.")
 
 func _on_bomb_removed():
 	pass  # Replace with function body

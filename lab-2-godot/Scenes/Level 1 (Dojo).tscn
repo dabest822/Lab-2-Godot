@@ -44,6 +44,7 @@ script = ExtResource("3_7bkb6")
 script = ExtResource("4_0xqqp")
 
 [node name="Bombs" parent="BombSpawner" instance=ExtResource("5_2khnf")]
+sword_slash_scene = null
 
 [node name="VeggieSpawner" type="Node2D" parent="."]
 script = ExtResource("9_2q3if")

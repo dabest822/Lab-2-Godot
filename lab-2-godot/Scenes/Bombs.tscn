@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://c0bm7s58mbjtl"]
+[gd_scene load_steps=8 format=3 uid="uid://c0bm7s58mbjtl"]
 
 [ext_resource type="SpriteFrames" uid="uid://yydsqcatqsr5" path="res://Animations/BombAnimations.tres" id="1_ekop2"]
 [ext_resource type="Script" path="res://Scripts/BombFalling.gd" id="1_fr51s"]
 [ext_resource type="SpriteFrames" uid="uid://ci6ophyvnaulw" path="res://Animations/ExplosionAnimations.tres" id="2_453gh"]
-[ext_resource type="PackedScene" uid="uid://cul1uv0vhx5pg" path="res://Scenes/Sword.tscn" id="2_n8dmf"]
 [ext_resource type="AudioStream" uid="uid://c1a3ys1pb6i4r" path="res://Music/Explosion.mp3" id="4_r28ih"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1047e"]
@@ -18,7 +17,6 @@ radius = 20.0
 
 [node name="Bombs" type="Node2D"]
 script = ExtResource("1_fr51s")
-sword_slash_scene = ExtResource("2_n8dmf")
 
 [node name="FallingBombs" type="AnimatedSprite2D" parent="."]
 position = Vector2(69.0001, -90)

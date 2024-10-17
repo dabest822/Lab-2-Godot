@@ -11,8 +11,8 @@ func _ready():
 	else:
 		push_error("SwordSlashTimer not found!")
 
-func show_slash(position: Vector2):
-	global_position = position
+func show_slash(new_position: Vector2):
+	global_position = new_position
 	rotation = randf_range(0, 2 * PI)
 	show()
 	is_active = true

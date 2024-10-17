@@ -119,6 +119,7 @@ shape = SubResource("RectangleShape2D_0ytdi")
 
 [node name="VeggieCutSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_v2w2y")
+volume_db = -6.0
 
 [node name="SwordSlashTimer" type="Timer" parent="."]
 wait_time = 0.05

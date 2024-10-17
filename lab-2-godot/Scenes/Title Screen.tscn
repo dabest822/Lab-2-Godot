@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://eqwu2jln054k"]
+[gd_scene load_steps=21 format=3 uid="uid://eqwu2jln054k"]
 
 [ext_resource type="Script" path="res://Scripts/TitleScreenMusic.gd" id="1_3bma2"]
 [ext_resource type="Texture2D" uid="uid://dkx6fwkllp3l5" path="res://Backgrounds/Title Screen BG.png" id="1_d65d0"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://csfj1wl2c7jcw" path="res://Icons/Great Wave BG Icon.png" id="6_y423e"]
 [ext_resource type="AudioStream" uid="uid://ciyy4c8a5h5yo" path="res://Music/Dojo Theme.mp3" id="7_6fjyk"]
 [ext_resource type="FontFile" uid="uid://kcx64u1q6o1o" path="res://Fonts/ARCADECLASSIC.TTF" id="7_h6oge"]
+[ext_resource type="Script" path="res://Scenes/LvLSelScreen.gd" id="7_s1ub1"]
 [ext_resource type="AudioStream" uid="uid://ib4q7anya2c1" path="res://Music/Mountain Theme.mp3" id="9_ne0e1"]
 [ext_resource type="Texture2D" uid="uid://c0fe7ywqhtg24" path="res://Sprites/Mario Arrow.png" id="10_ukpyo"]
 [ext_resource type="Script" path="res://Scripts/BackToPlay.gd" id="11_3fno8"]
@@ -67,6 +68,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("7_s1ub1")
 
 [node name="Dojo" type="TextureButton" parent="LevelSelectScreen"]
 visible = false
@@ -151,6 +153,42 @@ scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("10_ukpyo")
 script = ExtResource("11_3fno8")
 title_music = ExtResource("12_2ipf6")
+
+[node name="DojoHS" type="Label" parent="LevelSelectScreen"]
+visible = false
+layout_mode = 0
+offset_left = 1020.0
+offset_top = 280.0
+offset_right = 1520.0
+offset_bottom = 400.0
+scale = Vector2(0.3, 0.3)
+theme_override_fonts/font = ExtResource("7_h6oge")
+theme_override_font_sizes/font_size = 100
+text = "0"
+
+[node name="MountainHS" type="Label" parent="LevelSelectScreen"]
+visible = false
+layout_mode = 0
+offset_left = 1020.0
+offset_top = 590.0
+offset_right = 1520.0
+offset_bottom = 710.0
+scale = Vector2(0.3, 0.3)
+theme_override_fonts/font = ExtResource("7_h6oge")
+theme_override_font_sizes/font_size = 100
+text = "0"
+
+[node name="TheGreatWaveHS" type="Label" parent="LevelSelectScreen"]
+visible = false
+layout_mode = 0
+offset_left = 1020.0
+offset_top = 900.0
+offset_right = 1520.0
+offset_bottom = 1020.0
+scale = Vector2(0.3, 0.3)
+theme_override_fonts/font = ExtResource("7_h6oge")
+theme_override_font_sizes/font_size = 100
+text = "0"
 
 [node name="TitleScreenMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_2ipf6")

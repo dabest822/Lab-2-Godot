@@ -54,7 +54,7 @@ speed_scale = 0.75
 
 [node name="GameOverMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_chae4")
-volume_db = -15.0
+volume_db = -22.0
 autoplay = true
 
 [connection signal="animation_finished" from="Ninja" to="." method="_on_ninja_animation_finished"]

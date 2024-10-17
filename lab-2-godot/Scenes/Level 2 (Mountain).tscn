@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dnpy3ikhsk8i8"]
+[gd_scene load_steps=13 format=3 uid="uid://dnpy3ikhsk8i8"]
 
 [ext_resource type="Texture2D" uid="uid://l1cfoas4cjws" path="res://Backgrounds/Mountain BG.png" id="1_3a18h"]
 [ext_resource type="Script" path="res://Scripts/Timer.gd" id="1_gd561"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Scripts/BombSpawner.gd" id="4_frm1n"]
 [ext_resource type="PackedScene" uid="uid://c0bm7s58mbjtl" path="res://Scenes/Bombs.tscn" id="5_foul5"]
 [ext_resource type="AudioStream" uid="uid://ib4q7anya2c1" path="res://Music/Mountain Theme.mp3" id="6_tn6a2"]
+[ext_resource type="FontFile" uid="uid://kcx64u1q6o1o" path="res://Fonts/ARCADECLASSIC.TTF" id="7_dbi3j"]
 [ext_resource type="FontFile" uid="uid://cxb14iosawgox" path="res://Fonts/super-mario-kart-timer-font.ttf" id="8_bofae"]
 [ext_resource type="PackedScene" uid="uid://bx8pmogvjgnxu" path="res://Scenes/Score.tscn" id="9_ivupo"]
 [ext_resource type="Script" path="res://Scripts/VeggieSpawner.gd" id="10_0s6ol"]
@@ -41,6 +42,17 @@ texture_normal = ExtResource("2_4gcjd")
 script = ExtResource("3_tq3se")
 
 [node name="Scoring" parent="." instance=ExtResource("9_ivupo")]
+
+[node name="MountainHS" type="Label" parent="Scoring"]
+visible = false
+offset_left = 912.0
+offset_top = 486.0
+offset_right = 1407.0
+offset_bottom = 638.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("7_dbi3j")
+theme_override_font_sizes/font_size = 100
+text = "0"
 
 [node name="BombSpawner" type="Node2D" parent="."]
 script = ExtResource("4_frm1n")

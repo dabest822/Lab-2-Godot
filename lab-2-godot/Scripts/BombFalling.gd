@@ -12,6 +12,9 @@ extends Node2D
 
 var is_exploding = false
 var current_sword_slash: Node2D = null  # Reference to the current sword slash instance
+var has_emitted_bomb_hit: bool = false  # To ensure the bomb_hit signal is emitted only once
+
+signal bomb_hit
 
 func _ready():
 	print("Bomb initialized")
@@ -28,13 +31,16 @@ func _ready():
 	# Connect the Timer's timeout signal to the delete function
 	sword_slash_timer.connect("timeout", Callable(self, "delete_sword_slash_after_delay"))
 
-	# Connect the bomb_hit signal to a handler function
-	self.connect("bomb_hit", Callable(self, "_on_bomb_hit"))
-
 func _process(delta):
 	if not is_exploding:
 		position.y += fall_speed * delta
 		sprite.rotate(rotation_speed * delta)
+
+		# Check if bomb has moved beyond the bottom of the screen
+		if position.y > get_viewport().size.y + 50:
+			# Bomb falls off the screen, remove it without emitting the bomb hit signal
+			print("Bomb has fallen off the screen. Removing bomb.")
+			queue_free()
 
 func _input(event):
 	if event.is_action_pressed("Click"):
@@ -66,12 +72,9 @@ func delete_sword_slash_after_delay():
 		current_sword_slash = null
 
 func _on_bomb_clicked(_viewport, event, _shapeidx):
-	print("Input event on bomb area")
-	if event.is_action_pressed("Click"):
+	if not is_exploding and event.is_action_pressed("Click"):
 		print("Bomb clicked!")
 		explode()
-
-signal bomb_hit
 
 func explode():
 	print("Explode function called")
@@ -82,30 +85,14 @@ func explode():
 		print("Playing explosion animation")
 		explosion.play("Explode")  # Make sure your animation is named "Explode"
 
-		# Emit the signal when a bomb is hit
-		emit_signal("bomb_hit")
+		# Emit the signal when a bomb is hit by player action
+		if not has_emitted_bomb_hit:
+			emit_signal("bomb_hit")
+			has_emitted_bomb_hit = true
 
 		# Play the explosion sound
 		if audio_player:
-			# Ensure the audio player is detached from its current parent
-			if audio_player.get_parent() != null:
-				audio_player.get_parent().remove_child(audio_player)
-
-			# Get the root node and add the audio player as its child
-			var root_node = null
-			if is_inside_tree() and get_tree() != null:
-				root_node = get_tree().root
-			else:
-				print("Warning: Attempted to access the tree, but the node is not inside the scene tree.")
-
-			if root_node != null:
-				root_node.add_child(audio_player)
-				audio_player.owner = root_node
-
-			if audio_player.is_inside_tree():
-				audio_player.play()
-			else:
-				print("Error: Attempted to play explosion sound, but the audio player is not inside the scene tree")
+			audio_player.play()  # Play the sound normally
 
 		# Connect the animation finished signal only if not already connected
 		if not explosion.is_connected("animation_finished", Callable(self, "_on_explosion_finished")):
@@ -113,13 +100,13 @@ func explode():
 
 func _on_explosion_finished():
 	print("Explosion animation finished")
-	queue_free()  # Remove the bomb immediately after the explosion animation finishes
+	explosion.hide()  # Hide the explosion animation properly
+	# Only queue free after the audio player finishes the sound
+	if audio_player and audio_player.is_playing():
+		audio_player.connect("finished", Callable(self, "_on_audio_finished"))
+	else:
+		queue_free()
 
-func _on_bomb_hit():
-	print("Bomb was hit and exploded.")
-
-func _on_bomb_removed():
-	pass  # Replace with function body
-
-func _bomb_hit() -> void:
-	pass # Replace with function body.
+func _on_audio_finished():
+	print("Explosion sound finished, removing bomb")
+	queue_free()

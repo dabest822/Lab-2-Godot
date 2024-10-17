@@ -6,10 +6,6 @@ var countdown_speed: float = 1.0
 var sword_slash_scene = preload("res://Scenes/Sword.tscn")
 var current_slash: Sprite2D = null
 
-var score: int = 0
-var bomb_hits: int = 0
-const MAX_BOMB_HITS: int = 3
-
 @onready var score_label = $Scoring/Score
 
 func _ready():
@@ -23,9 +19,9 @@ func setup_current_level():
 	var scene_name = get_tree().current_scene.name
 	print("Current scene name is: ", scene_name)
 	match scene_name:
-		"Dojo": GlobalState.current_level = "Dojo"
-		"Mountain": GlobalState.current_level = "Mountain"
-		"TheGreatWave": GlobalState.current_level = "GreatWave"
+		"Dojo": GlobalState.current_level = "res://Scenes/Level 1 (Dojo).tscn"
+		"Mountain": GlobalState.current_level = "res://Scenes/Level 2 (Mountain).tscn"
+		"TheGreatWave": GlobalState.current_level = "res://Scenes/Level 3 (The Great Wave).tscn"
 		_: print("Warning: Unrecognized scene, no current level set.")
 
 func setup_timer():
@@ -59,8 +55,7 @@ func setup_sword_slash():
 	current_slash = sword_instance.get_node("SwordSlash")
 
 func setup_score_manager():
-	score = 0
-	bomb_hits = 0
+	GlobalState.reset_score()
 	update_score_display()
 
 func _process(delta):
@@ -94,25 +89,25 @@ func stop_bombs():
 
 func end_level():
 	print("Ending level due to max bomb hits or time out")
+	GlobalState.update_high_score(GlobalState.current_level, GlobalState.score)
 	get_tree().change_scene_to_file("res://Scenes/GameOver.tscn")
 
 func add_points(_veggie_name: String):
 	# Add logic to determine points based on veggie type
 	var points = 10  # Default points, adjust as needed
-	score += points
+	GlobalState.score += points
 	update_score_display()
 
 func hit_bomb():
-	bomb_hits += 1
-	score = max(0, score - 30)  # Subtract 30 points, don't go below 0
+	GlobalState.score = max(0, GlobalState.score - 30)  # Subtract 30 points, don't go below 0
 	update_score_display()
-	print("Bomb hit! Total hits: ", bomb_hits)
-	if bomb_hits >= MAX_BOMB_HITS:
+	print("Bomb hit!")
+	if GlobalState.bomb_hits >= GlobalState.MAX_BOMB_HITS:
 		call_deferred("end_level")
 
 func update_score_display():
 	if score_label:
-		score_label.text = "Score: %d" % score
+		score_label.text = "Score: %d" % GlobalState.score
 	else:
 		print("Warning: score_label not found")
 
@@ -121,15 +116,9 @@ func setup_veggie_signal(veggie_instance):
 
 func setup_bomb_signal(bomb_instance):
 	bomb_instance.connect("bomb_hit", Callable(self, "_on_bomb_hit"))
-	bomb_instance.connect("tree_exited", Callable(self, "_on_bomb_removed"))
 
 func _on_veggie_cut(veggie_name: Variant):
 	add_points(veggie_name)
 
 func _on_bomb_hit():
 	hit_bomb()
-
-func _on_bomb_removed():
-	bomb_hits -= 1
-	bomb_hits = max(bomb_hits, 0)  # Ensure bomb hits do not go negative
-	print("Bomb removed, total hits: ", bomb_hits)

@@ -92,13 +92,20 @@ func explode():
 				audio_player.get_parent().remove_child(audio_player)
 
 			# Get the root node and add the audio player as its child
-			var root_node = get_tree().root
+			var root_node = null
+			if is_inside_tree() and get_tree() != null:
+				root_node = get_tree().root
+			else:
+				print("Warning: Attempted to access the tree, but the node is not inside the scene tree.")
+
 			if root_node != null:
 				root_node.add_child(audio_player)
 				audio_player.owner = root_node
 
-			# Play the sound
-			audio_player.play()
+			if audio_player.is_inside_tree():
+				audio_player.play()
+			else:
+				print("Error: Attempted to play explosion sound, but the audio player is not inside the scene tree")
 
 		# Connect the animation finished signal only if not already connected
 		if not explosion.is_connected("animation_finished", Callable(self, "_on_explosion_finished")):
@@ -113,7 +120,6 @@ func _on_bomb_hit():
 
 func _on_bomb_removed():
 	pass  # Replace with function body
-
 
 func _bomb_hit() -> void:
 	pass # Replace with function body.

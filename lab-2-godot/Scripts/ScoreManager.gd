@@ -68,12 +68,12 @@ func hit_bomb():
 	if bomb_hits >= MAX_BOMB_HITS:
 		game_over()
 	else:
-		naruto_animation.play("idle")
+		naruto_animation.play("Idle")
 
 func game_over():
 	print("Game Over! Too many bomb hits.")
-	naruto_animation.play("idle")
-	
+	naruto_animation.play("Idle")
+
 	# Create a short delay before transitioning to the game-over scene
 	var timer = Timer.new()
 	timer.wait_time = 1.0  # 1-second delay
@@ -111,20 +111,30 @@ func update_score_display():
 
 func update_naruto_animation():
 	if score > 200:
-		naruto_animation.play("thumbsup")
+		naruto_animation.play("ThumbsUp")
 	elif score > 100:
-		naruto_animation.play("nodding")
+		naruto_animation.play("Nodding")
 	else:
-		naruto_animation.play("idle")
+		naruto_animation.play("Idle")
 
 func _on_animation_timer_timeout():
-	if naruto_animation.current_animation == "idle":
-		naruto_animation.play("running")
+	if naruto_animation.current_animation == "Idle":
+		naruto_animation.play("Running")
 		await get_tree().create_timer(3.0).timeout  # Run for 3 seconds
-		naruto_animation.play("idle")
+		naruto_animation.play("Idle")
 
-func _on_veggie_cut(veggie_name):
+func _on_veggie_cut(veggie_name: String):
 	add_points(veggie_name)
 
-func _bomb_hit():
-	hit_bomb()
+func _on_bomb_hit():
+	bomb_hits += 1
+	score = max(0, score - BOMB_PENALTY)  # Deduct 30 points, ensure score doesn't go below zero
+	update_score_display()
+	print("Hit bomb! Penalty: %d. New score: %d. Bomb hits: %d" % [BOMB_PENALTY, score, bomb_hits])
+
+	if bomb_hits >= MAX_BOMB_HITS:
+		print("Max bomb hits reached! Triggering game over...")
+		get_tree().change_scene_to_file("res://Scenes/GameOver.tscn") 
+
+func setup_bomb_signal(bomb_instance):
+	bomb_instance.connect("bomb_hit", Callable(self, "_on_bomb_hit"))

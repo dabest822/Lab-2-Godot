@@ -116,20 +116,20 @@ func update_score_display():
 	else:
 		print("Warning: score_label not found")
 
-func on_veggie_cut(veggie_name):
-	add_points(veggie_name)
-
-func on_bomb_hit():
-	hit_bomb()
-
 func setup_veggie_signal(veggie_instance):
-	veggie_instance.connect("veggie_cut", Callable(self, "on_veggie_cut"))
+	veggie_instance.connect("veggie_cut", Callable(self, "_on_veggie_cut"))
 
 func setup_bomb_signal(bomb_instance):
-	bomb_instance.connect("bomb_hit", Callable(self, "on_bomb_hit"))
+	bomb_instance.connect("bomb_hit", Callable(self, "_on_bomb_hit"))
+	bomb_instance.connect("tree_exited", Callable(self, "_on_bomb_removed"))
 
-func veggie_cut(_veggie_name: Variant) -> void:
-	pass # Replace with function body.
+func _on_veggie_cut(veggie_name: Variant):
+	add_points(veggie_name)
 
-func _bomb_hit() -> void:
-	pass # Replace with function body.
+func _on_bomb_hit():
+	hit_bomb()
+
+func _on_bomb_removed():
+	bomb_hits -= 1
+	bomb_hits = max(bomb_hits, 0)  # Ensure bomb hits do not go negative
+	print("Bomb removed, total hits: ", bomb_hits)

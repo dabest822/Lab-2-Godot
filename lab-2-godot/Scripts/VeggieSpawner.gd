@@ -38,11 +38,10 @@ func _ready():
 
 func _spawn_veggie():
 	print("Attempting to spawn veggie...")
-	
 	if veggie_scene:
 		var veggie_instance = veggie_scene.instantiate()
 		var random_veggie = all_veggie_names[randi() % all_veggie_names.size()]
-
+		
 		veggie_instance.position = Vector2(randf_range(100, 1400), -50)
 
 		# Set fall speed based on difficulty
@@ -51,7 +50,7 @@ func _spawn_veggie():
 
 		# Assign the group to the falling veggie
 		var veggie_group = _determine_veggie_group(random_veggie)
-		veggie_instance.set("current_group", veggie_group)  # Set the group for correct cut sprites
+		veggie_instance.set("current_group", veggie_group)
 
 		# Set animation for the veggie
 		var falling_sprite = veggie_instance.get_node("FallingVeggies")
@@ -61,9 +60,10 @@ func _spawn_veggie():
 		else:
 			print("Error: Could not find FallingVeggies node in veggie_instance")
 
-		# Connect the veggie_cut signal
-		veggie_instance.connect("veggie_cut", Callable(self, "_on_veggie_cut"))
-		
+		# Connect the veggie_cut signal to ScoreManager
+		var score_manager = get_node("../Scoring")
+		veggie_instance.connect("veggie_cut", Callable(score_manager, "_on_veggie_cut"))
+
 		add_child(veggie_instance)
 		print("Spawned veggie type: ", random_veggie)
 	else:

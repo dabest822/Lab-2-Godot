@@ -70,6 +70,7 @@ func cut():
 	if not is_cut:
 		is_cut = true
 		print("Cutting veggie!")
+		emit_signal("veggie_cut", sprite.animation)
 		if audio_player:
 			audio_player.play()
 
@@ -78,11 +79,6 @@ func cut():
 		cut_left_nodes[selected_index].visible = true
 		cut_right_nodes[selected_index].visible = true
 		move_cut_halves()
-
-		# Emit the signal when a veggie is cut
-		emit_signal("veggie_cut", sprite.animation)
-
-		# ... rest of the function
 
 func sync_cut_pieces_with_main_sprite():
 	var current_animation = sprite.animation

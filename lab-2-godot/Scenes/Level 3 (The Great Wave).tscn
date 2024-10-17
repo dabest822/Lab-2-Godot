@@ -40,6 +40,8 @@ scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("2_dk2r6")
 script = ExtResource("3_5b1ty")
 
+[node name="Scoring" parent="." instance=ExtResource("11_3lton")]
+
 [node name="BombSpawner" type="Node2D" parent="."]
 script = ExtResource("4_c0pia")
 
@@ -50,14 +52,11 @@ script = ExtResource("6_qgwt1")
 
 [node name="Veggies" parent="VeggieSpawner" instance=ExtResource("7_0o8ia")]
 
-[node name="Scoring" parent="." instance=ExtResource("11_3lton")]
-
 [node name="GreatWaveMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_722xm")
 
 [connection signal="tree_exited" from="BombSpawner" to="." method="_on_bomb_removed"]
-[connection signal="bomb_hit" from="BombSpawner/Bombs" to="." method="_bomb_hit"]
 
+[editable path="Scoring"]
 [editable path="BombSpawner/Bombs"]
 [editable path="VeggieSpawner/Veggies"]
-[editable path="Scoring"]

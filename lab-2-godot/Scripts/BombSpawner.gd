@@ -30,15 +30,13 @@ func _start_bomb_spawning():
 	spawn_timer = Timer.new()
 	add_child(spawn_timer)
 	spawn_timer.connect("timeout", Callable(self, "_try_spawn_bomb"))
-	spawn_timer.one_shot = true
 	update_difficulty()
-	spawn_timer.start()
+	spawn_timer.start()  # Start spawn timer after setting difficulty
 
 func update_difficulty():
 	var difficulty = GlobalState.current_difficulty
 	var new_spawn_interval = base_spawn_interval / (1 + (difficulty - 1) * 0.3)
 	spawn_timer.wait_time = max(min_spawn_interval, new_spawn_interval)
-	spawn_timer.start()
 
 	# Adjust max bombs on screen based on difficulty
 	match difficulty:
@@ -63,23 +61,25 @@ func _try_spawn_bomb():
 
 func _spawn_bomb():
 	var bomb_instance = bomb_scene.instantiate()
+	viewport_size = get_viewport().size  # Update viewport size in case it changed
 	bomb_instance.position = Vector2(randf_range(100, viewport_size.x - 100), -50)
 
 	var speed_multiplier = 1 + (GlobalState.current_difficulty - 1) * 0.5
 	bomb_instance.fall_speed = base_fall_speed * speed_multiplier
 
 	# Connect the bomb_hit signal
-	bomb_instance.connect("bomb_hit", Callable(self, "_on_bomb_hit"))
-	
+	setup_bomb_signal(bomb_instance)
+
 	add_child(bomb_instance)  # Add the bomb to the scene first
 	current_bomb_count += 1  # Increase bomb count
 	print("Bomb spawned with fall speed: ", bomb_instance.fall_speed)
 
-	# Connect the tree_exited signal to handle bomb removal
-	if bomb_instance.connect("tree_exited", Callable(self, "_on_bomb_removed")):
-		print("Successfully connected tree_exited signal for bomb")
-	else:
-		print("Failed to connect tree_exited signal for bomb")
+func setup_bomb_signal(bomb_instance):
+	var score_manager = get_node("../Scoring")
+	if score_manager == null:
+		print("Error: Could not find score_manager node!")
+	bomb_instance.connect("bomb_hit", Callable(score_manager, "_on_bomb_hit"))  # Ensure this path is correct
+	bomb_instance.connect("tree_exited", Callable(self, "_on_bomb_removed"))  # Added missing connection
 
 func _on_bomb_removed():
 	current_bomb_count -= 1

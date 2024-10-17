@@ -96,7 +96,7 @@ func end_level():
 	print("Ending level due to max bomb hits or time out")
 	get_tree().change_scene_to_file("res://Scenes/GameOver.tscn")
 
-func add_points(_veggie_name: String):
+func add_points(veggie_name: String):
 	# Add logic to determine points based on veggie type
 	var points = 10  # Default points, adjust as needed
 	score += points
@@ -121,3 +121,9 @@ func on_veggie_cut(veggie_name):
 
 func on_bomb_hit():
 	hit_bomb()
+
+func setup_veggie_signal(veggie_instance):
+	veggie_instance.connect("veggie_cut", Callable(self, "on_veggie_cut"))
+
+func setup_bomb_signal(bomb_instance):
+	bomb_instance.connect("bomb_hit", Callable(self, "on_bomb_hit"))

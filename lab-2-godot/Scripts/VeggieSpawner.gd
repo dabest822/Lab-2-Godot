@@ -77,8 +77,7 @@ func _determine_veggie_group(veggie_name):
 	return ""
 
 func _on_veggie_cut(veggie_name):
-	var level_controller = get_node("..")  # Assuming VeggieSpawner is a direct child of the level node
-	if level_controller:
-		level_controller.on_veggie_cut(veggie_name)
-	else:
-		print("Error: Level controller not found")
+	print("Veggie was cut: ", veggie_name)  # Directly handle the veggie_cut signal
+
+func _process(_delta):
+	pass

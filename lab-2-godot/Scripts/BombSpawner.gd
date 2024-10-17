@@ -87,11 +87,7 @@ func _on_bomb_removed():
 	print("Bomb removed, current bomb count: ", current_bomb_count)
 
 func _on_bomb_hit():
-	var level_controller = get_parent()
-	if level_controller and level_controller.has_method("on_bomb_hit"):
-		level_controller.on_bomb_hit()
-	else:
-		print("Error: Level controller not found or doesn't have on_bomb_hit method")
+	print("Bomb was hit and exploded!")  # Handle the bomb hit directly in this script
 
 func _process(_delta):
 	pass

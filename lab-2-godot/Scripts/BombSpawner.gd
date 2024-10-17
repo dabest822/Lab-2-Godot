@@ -70,7 +70,7 @@ func _spawn_bomb():
 
 	# Connect the bomb_hit signal
 	bomb_instance.connect("bomb_hit", Callable(self, "_on_bomb_hit"))
-
+	
 	add_child(bomb_instance)  # Add the bomb to the scene first
 	current_bomb_count += 1  # Increase bomb count
 	print("Bomb spawned with fall speed: ", bomb_instance.fall_speed)

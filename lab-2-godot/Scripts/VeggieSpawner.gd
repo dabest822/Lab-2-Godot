@@ -63,7 +63,7 @@ func _spawn_veggie():
 
 		# Connect the veggie_cut signal
 		veggie_instance.connect("veggie_cut", Callable(self, "_on_veggie_cut"))
-
+		
 		add_child(veggie_instance)
 		print("Spawned veggie type: ", random_veggie)
 	else:

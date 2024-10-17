@@ -41,9 +41,6 @@ func _ready():
 	selected_index = randi_range(0, 4)
 	update_sprite_to_match_veggie(selected_index)
 
-	# Connect the veggie_cut signal to a handler function
-	self.connect("veggie_cut", Callable(self, "_on_veggie_cut"))
-
 func update_sprite_to_match_veggie(index):
 	var sprite_frames = load("res://Animations/VeggiesG%d.tres" % (index + 1)) as SpriteFrames
 	if sprite_frames != null:
@@ -85,6 +82,8 @@ func cut():
 		# Emit the signal when a veggie is cut
 		emit_signal("veggie_cut", sprite.animation)
 
+		# ... rest of the function
+
 func sync_cut_pieces_with_main_sprite():
 	var current_animation = sprite.animation
 	var current_frame = sprite.frame
@@ -106,5 +105,5 @@ func move_cut_halves():
 func _on_timeout():
 	queue_free()
 
-func _on_veggie_cut(veggie_name):
-	print("Veggie cut:", veggie_name)
+func _on_veggie_cut(_veggie_name: Variant) -> void:
+	pass # Replace with function body.

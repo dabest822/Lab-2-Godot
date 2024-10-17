@@ -123,3 +123,5 @@ stream = ExtResource("1_v2w2y")
 [node name="SwordSlashTimer" type="Timer" parent="."]
 wait_time = 0.05
 one_shot = true
+
+[connection signal="veggie_cut" from="." to="." method="_on_veggie_cut"]

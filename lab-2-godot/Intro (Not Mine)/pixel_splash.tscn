@@ -1,12 +1,12 @@
 [gd_scene load_steps=15 format=3 uid="uid://bso0uurkcbpe7"]
 
-[ext_resource type="Texture2D" uid="uid://dv3rxypw5wtrh" path="res://Intro/pixel_logo_sheet.png" id="1_600d7"]
-[ext_resource type="Script" path="res://Intro/pixel_splash.gd" id="1_mmh88"]
-[ext_resource type="Texture2D" uid="uid://74512bqehk41" path="res://Intro/pixel_logo_whites.png" id="3_5o7ke"]
-[ext_resource type="Shader" path="res://Intro/polygon_mask.gdshader" id="4_8fqg1"]
-[ext_resource type="FontFile" uid="uid://djdqyhfnp6xgj" path="res://Intro/m5x7.ttf" id="5_l0ynd"]
-[ext_resource type="FontFile" uid="uid://dv7r4qm33eole" path="res://Intro/Not Jam UI 12.ttf" id="6_qavkm"]
-[ext_resource type="AudioStream" uid="uid://g22qbupx1v7" path="res://Intro/IntroScreen.mp3" id="7_vlelo"]
+[ext_resource type="Texture2D" uid="uid://dv3rxypw5wtrh" path="res://Intro (Not Mine)/pixel_logo_sheet.png" id="1_600d7"]
+[ext_resource type="Script" path="res://Intro (Not Mine)/pixel_splash.gd" id="1_mmh88"]
+[ext_resource type="Texture2D" uid="uid://74512bqehk41" path="res://Intro (Not Mine)/pixel_logo_whites.png" id="3_5o7ke"]
+[ext_resource type="Shader" path="res://Intro (Not Mine)/polygon_mask.gdshader" id="4_8fqg1"]
+[ext_resource type="FontFile" uid="uid://djdqyhfnp6xgj" path="res://Intro (Not Mine)/m5x7.ttf" id="5_l0ynd"]
+[ext_resource type="FontFile" uid="uid://dv7r4qm33eole" path="res://Intro (Not Mine)/Not Jam UI 12.ttf" id="6_qavkm"]
+[ext_resource type="AudioStream" uid="uid://g22qbupx1v7" path="res://Intro (Not Mine)/IntroScreen.mp3" id="7_vlelo"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6gn2x"]
 shader = ExtResource("4_8fqg1")

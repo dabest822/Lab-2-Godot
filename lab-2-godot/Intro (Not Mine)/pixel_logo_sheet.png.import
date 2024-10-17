@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvjd35o73pljs"
-path="res://.godot/imported/Blade.png-a33e002e06abb55db546f34166d4c8fc.ctex"
+uid="uid://dv3rxypw5wtrh"
+path="res://.godot/imported/pixel_logo_sheet.png-c83c3f1ceead643943a9235998a571e9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GUI/Blade.png"
-dest_files=["res://.godot/imported/Blade.png-a33e002e06abb55db546f34166d4c8fc.ctex"]
+source_file="res://Intro (Not Mine)/pixel_logo_sheet.png"
+dest_files=["res://.godot/imported/pixel_logo_sheet.png-c83c3f1ceead643943a9235998a571e9.ctex"]
 
 [params]
 

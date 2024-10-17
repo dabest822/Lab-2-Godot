@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://dv7r4qm33eole"
-path="res://.godot/imported/Not Jam UI 12.ttf-1abe14486982b6676870d5b3ab56cf64.fontdata"
+path="res://.godot/imported/Not Jam UI 12.ttf-678ca3302a812b8bd770220f8bbaf9eb.fontdata"
 
 [deps]
 
-source_file="res://Intro/Not Jam UI 12.ttf"
-dest_files=["res://.godot/imported/Not Jam UI 12.ttf-1abe14486982b6676870d5b3ab56cf64.fontdata"]
+source_file="res://Intro (Not Mine)/Not Jam UI 12.ttf"
+dest_files=["res://.godot/imported/Not Jam UI 12.ttf-678ca3302a812b8bd770220f8bbaf9eb.fontdata"]
 
 [params]
 

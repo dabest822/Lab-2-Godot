@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cx50cnp3c2xbd"
-path="res://.godot/imported/icon.svg-40682ce977232c3bf826a18ad03426a9.ctex"
+uid="uid://2ipkfw03seu3"
+path="res://.godot/imported/Mario Holding Score.png-fa37ae4bca3bac91ccbca1178247d350.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Intro/icon.svg"
-dest_files=["res://.godot/imported/icon.svg-40682ce977232c3bf826a18ad03426a9.ctex"]
+source_file="res://Sprites/Mario Holding Score.png"
+dest_files=["res://.godot/imported/Mario Holding Score.png-fa37ae4bca3bac91ccbca1178247d350.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

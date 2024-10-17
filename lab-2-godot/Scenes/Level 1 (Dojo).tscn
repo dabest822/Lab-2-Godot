@@ -56,8 +56,6 @@ script = ExtResource("9_2q3if")
 stream = ExtResource("6_uis3a")
 
 [connection signal="bomb_hit" from="BombSpawner/Bombs" to="." method="_bomb_hit"]
-[connection signal="tree_exited" from="BombSpawner/Bombs" to="." method="_on_bomb_removed"]
-[connection signal="veggie_cut" from="VeggieSpawner/Veggies" to="." method="veggie_cut"]
 
 [editable path="BombSpawner/Bombs"]
 [editable path="VeggieSpawner/Veggies"]

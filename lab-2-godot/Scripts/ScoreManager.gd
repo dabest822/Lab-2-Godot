@@ -126,5 +126,5 @@ func _on_animation_timer_timeout():
 func _on_veggie_cut(veggie_name):
 	add_points(veggie_name)
 
-func _on_bomb_hit():
+func _bomb_hit():
 	hit_bomb()

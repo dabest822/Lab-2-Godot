@@ -51,4 +51,5 @@ shape = SubResource("CapsuleShape2D_13ron")
 position = Vector2(80, -127)
 shape = SubResource("CircleShape2D_ijmy0")
 
+[connection signal="bomb_hit" from="." to="." method="_bomb_hit"]
 [connection signal="tree_exited" from="." to="." method="_on_bomb_removed"]

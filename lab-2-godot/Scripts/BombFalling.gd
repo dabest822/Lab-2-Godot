@@ -113,3 +113,7 @@ func _on_bomb_hit():
 
 func _on_bomb_removed():
 	pass  # Replace with function body
+
+
+func _bomb_hit() -> void:
+	pass # Replace with function body.

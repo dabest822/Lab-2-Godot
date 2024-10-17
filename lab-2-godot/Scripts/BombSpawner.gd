@@ -81,25 +81,17 @@ func _spawn_bomb():
 	else:
 		print("Failed to connect tree_exited signal for bomb")
 
-	# As a backup, use a timeout to ensure bomb removal
-	var bomb_timer = Timer.new()
-	bomb_timer.one_shot = true
-	bomb_timer.wait_time = 5.0  # Arbitrary time to ensure bomb is removed
-	bomb_instance.add_child(bomb_timer)
-	bomb_timer.connect("timeout", Callable(bomb_instance, "queue_free"))
-	bomb_timer.start()
-
 func _on_bomb_removed():
 	current_bomb_count -= 1
 	current_bomb_count = max(current_bomb_count, 0)  # Prevent negative values
 	print("Bomb removed, current bomb count: ", current_bomb_count)
 
 func _on_bomb_hit():
-	var level_controller = get_node("..")  # Assuming BombSpawner is a direct child of the level node
-	if level_controller:
+	var level_controller = get_parent()
+	if level_controller and level_controller.has_method("on_bomb_hit"):
 		level_controller.on_bomb_hit()
 	else:
-		print("Error: Level controller not found")
+		print("Error: Level controller not found or doesn't have on_bomb_hit method")
 
 func _process(_delta):
 	pass

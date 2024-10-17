@@ -68,7 +68,7 @@ func _process(delta):
 	if time_remaining <= 0:
 		time_remaining = 0
 		stop_bombs()
-		end_level()
+		call_deferred("end_level")
 	update_timer_display(time_remaining)
 
 func _input(event):
@@ -93,6 +93,7 @@ func stop_bombs():
 				bomb.queue_free()
 
 func end_level():
+	print("Ending level due to max bomb hits or time out")
 	get_tree().change_scene_to_file("res://Scenes/GameOver.tscn")
 
 func add_points(_veggie_name: String):
@@ -105,8 +106,9 @@ func hit_bomb():
 	bomb_hits += 1
 	score = max(0, score - 30)  # Subtract 30 points, don't go below 0
 	update_score_display()
+	print("Bomb hit! Total hits: ", bomb_hits)
 	if bomb_hits >= MAX_BOMB_HITS:
-		end_level()
+		call_deferred("end_level")
 
 func update_score_display():
 	if score_label:
@@ -114,7 +116,6 @@ func update_score_display():
 	else:
 		print("Warning: score_label not found")
 
-# These functions should be called from VeggieSpawner and BombSpawner
 func on_veggie_cut(veggie_name):
 	add_points(veggie_name)
 
